@@ -27,15 +27,16 @@
 | 交付物 | 路径 | 规格 |
 |---|---|---|
 | **票面矢量图稿**（6 档 × 正反 = 12 份） | [`dist/svg/`](dist/svg) | **纯矢量、完全自包含**；每份 44 ~ 699 KB，可无损缩放 |
-| **超高清位图**（6 档 × 正反 = 12 份） | `dist/png/` ※ | 7560 × 3528 px，等效 1091 ~ 1455 DPI，扫描件质感 |
+| **超高清位图**（6 档 × 正反 = 12 份） | [`dist/png/`](dist/png) | 7560 × 3528 px，等效 1091 ~ 1455 DPI，扫描件质感 |
 | **全系列总表** | [dist/series-all.png](dist/series-all.png) | 2620 × 11950 px，六档正反面按真实相对尺寸排列 |
 | **尺寸与输出规格说明** | [dist/鲸元券-尺寸说明.docx](dist/鲸元券-尺寸说明.docx) · [.txt](dist/鲸元券-尺寸说明.txt) | 券幅表 / 输出规格 / 要素坐标 / 字体 / 色彩 |
 | **货币规范书** | [docs/spec-book.md](docs/spec-book.md) | 八章 + 附录；票面规格、面额体系、视觉系统、防伪分层、无障碍、印制工艺、商标合规 |
 | **视觉系统图** | [docs/visual-system.html](docs/visual-system.html) · [.png](docs/visual-system.png) | 色板 / 基准网格与版式定位 / 字体层级表 / 纹饰母题库 / 徽志规范 / 面额色彩分级条 |
 | **交付包** | [dist/README.txt](dist/README.txt) | 全档图稿打包说明与重生成命令 |
 
-※ `dist/png/` 单张约 15 MB、十二张近 190 MB，**未纳入版本管理**。需要请见
-[`.gitignore`](.gitignore) 里的 Git LFS 写法，或用 `build/` 下的脚本自行重新渲染。
+※ `dist/png/` 单张 15 ~ 17 MB、十二张合计 183 MB，走 **Git LFS**（见 [`.gitattributes`](.gitattributes)）。
+直接 `git clone` 会**自动取回实体文件**；若只想要指针，用
+`GIT_LFS_SKIP_SMUDGE=1 git clone`，再按需 `git lfs pull`。
 
 ### 面额一览
 
@@ -73,7 +74,7 @@
 ├─ LICENSE / LICENSE-ARTWORK / NOTICE.md    授权与第三方声明
 ├─ dist/                    交付物
 │  ├─ svg/                      12 份纯矢量票面（6 档 × 正反）
-│  ├─ png/                      12 份超高清位图（未纳入版本管理）
+│  ├─ png/                      12 份超高清位图（Git LFS，7560 × 3528）
 │  ├─ docs/                     规范书与视觉系统图副本
 │  ├─ README.txt / 尺寸说明.docx / 尺寸说明.txt
 │  └─ series-all.png            全系列总表

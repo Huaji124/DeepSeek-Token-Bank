@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>鲸元券 · 视觉系统总图 | WHALE-YUAN VISUAL SYSTEM</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1400px;background:#F5EFDE;color:#1B2657;
+  font-family:"Noto Sans SC","Source Han Sans SC","Microsoft YaHei","微软雅黑",sans-serif;
+  font-size:13px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
+.serif{font-family:"Noto Serif SC","Source Han Serif SC",SimSun,"宋体",serif}
+.mono{font-family:Consolas,"Cascadia Mono",monospace}
+
+/* ---------- hero ---------- */
+.hero{background:#1B2657;color:#F5EFDE;padding:38px 44px 26px;border-bottom:7px solid #B08A3E;position:relative}
+.hero-k{font-family:Consolas,monospace;font-size:11px;font-weight:600;letter-spacing:.32em;color:#D8BC72;margin-bottom:16px}
+.hero h1{font-family:"Noto Serif SC",SimSun,serif;font-size:46px;font-weight:900;letter-spacing:.07em;line-height:1.04}
+.hero h1 em{font-style:normal;font-size:22px;font-weight:500;color:#D8BC72;letter-spacing:.22em;margin-left:16px}
+.hero-en{font-family:"Times New Roman",serif;font-size:13px;letter-spacing:.40em;color:#9FB2DE;margin-top:14px}
+.hero-meta{margin-top:18px;padding-top:13px;border-top:1px solid rgba(245,239,222,.26);
+  font-size:11.5px;letter-spacing:.06em;color:#CBD5EC}
+.hero-meta b{color:#D8BC72;font-weight:600}
+.hero-stamp{position:absolute;right:44px;top:38px;width:112px;height:112px;border:2px solid #B08A3E;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;color:#D8BC72;
+  font-size:10px;letter-spacing:.14em;text-align:center;line-height:1.35}
+.hero-stamp b{display:block;font-size:19px;letter-spacing:.02em;font-family:"Noto Serif SC",serif;color:#F5EFDE}
+
+/* ---------- section frame ---------- */
+.sec{padding:0 44px;margin-top:42px}
+.sh{display:flex;align-items:baseline;gap:14px;border-bottom:2px solid #1B2657;padding-bottom:9px;margin-bottom:6px}
+.sh-n{font-family:Consolas,monospace;font-size:15px;font-weight:700;color:#B08A3E;letter-spacing:.08em}
+.sh h2{font-family:"Noto Serif SC",SimSun,serif;font-size:23px;font-weight:700;letter-spacing:.05em}
+.sh-en{margin-left:auto;font-family:"Times New Roman",serif;font-size:11.5px;letter-spacing:.24em;color:#3F6CC4}
+.rule{height:2px;background:#D8BC72;margin-bottom:18px}
+.note{font-size:12px;color:#41507E;margin-bottom:16px;line-height:1.7}
+.note b{color:#1B2657;background:linear-gradient(transparent 62%,rgba(216,188,114,.55) 62%)}
+.warnbar{border-left:4px solid #A63A32;background:rgba(166,58,50,.07);padding:10px 14px;font-size:12px;
+  color:#5A2E2A;margin:14px 0 4px;line-height:1.65}
+.warnbar b{color:#A63A32}
+
+/* ---------- 01 palette ---------- */
+.pg{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.sw{border:1px solid rgba(27,38,87,.22);background:#FFFDF6;display:flex;flex-direction:column;overflow:hidden}
+.sw-chip{height:92px;position:relative;display:flex;align-items:flex-end;justify-content:flex-end;padding:9px 11px}
+.sw-hex{font-family:Consolas,monospace;font-size:13px;font-weight:700;letter-spacing:.04em}
+.sw-body{padding:10px 12px 12px;border-top:1px solid rgba(27,38,87,.18)}
+.sw-name{font-family:"Noto Serif SC",SimSun,serif;font-size:14.5px;font-weight:700;letter-spacing:.04em}
+.sw-name span{font-family:"Times New Roman",serif;font-size:10.5px;letter-spacing:.16em;color:#6C7AA8;font-weight:400}
+.sw-use{font-size:11.5px;color:#23283C;margin-top:5px;line-height:1.5}
+.sw-use b{color:#3F6CC4;font-weight:600}
+.sw-meta{font-family:Consolas,monospace;font-size:10px;color:#7885AE;margin-top:6px;line-height:1.5}
+.sw-tag{position:absolute;left:0;top:0;background:rgba(245,239,222,.92);color:#1B2657;
+  font-size:9.5px;letter-spacing:.14em;padding:3px 8px;font-weight:700}
+.sw-tag.aux{background:rgba(27,38,87,.86);color:#F5EFDE}
+.ratio{margin-top:16px;border:1px solid rgba(27,38,87,.22);background:#FFFDF6;padding:13px 15px 11px}
+.ratio-t{font-size:11.5px;font-weight:700;letter-spacing:.1em;margin-bottom:9px;color:#1B2657}
+.ratio-bar{display:flex;height:26px;border:1px solid rgba(27,38,87,.3)}
+.ratio-bar i{display:block;font-style:normal}
+.ratio-lg{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;font-family:Consolas,monospace;font-size:10px;color:#41507E}
+.ratio-lg b{display:inline-block;width:8px;height:8px;margin-right:5px;border:1px solid rgba(27,38,87,.3);vertical-align:middle}
+.ban{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+.ban-it{border:1px dashed rgba(166,58,50,.6);background:rgba(166,58,50,.05);padding:9px 11px;font-size:11px;color:#5A2E2A;line-height:1.5}
+.ban-it s{color:#A63A32;font-weight:700;text-decoration-thickness:2px}
+.ban-it em{font-style:normal;display:block;font-family:Consolas,monospace;font-size:10px;color:#8A6560;margin-top:3px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-k">DEEPSEEK TOKEN BANK &nbsp;·&nbsp; DeepSeek Token银行 &nbsp;·&nbsp; DOC. VS-01</div>
+  <h1>鲸元券<em>视觉系统总图</em></h1>
+  <div class="hero-en">WHALE-YUAN &nbsp;VISUAL&nbsp; SYSTEM&nbsp; MASTER&nbsp; SHEET</div>
+  <div class="hero-meta">
+    票面基准 <b>150 mm × 70 mm</b> &nbsp;|&nbsp; 换算 <b>12.6 px/mm</b> &nbsp;|&nbsp; 画布 <b>1890 × 882 px</b> &nbsp;|&nbsp;
+    制图幅宽 <b>1400 px</b> &nbsp;|&nbsp; 版本 <b>v1.0</b> &nbsp;|&nbsp; 2026-10-05<br>
+    本图是《鲸元券货币规范书》第 4 章「视觉系统」的图形附件，与规范书正文配套使用；色彩、网格、字号全部量化，可直接交付制版。
+  </div>
+  <div class="hero-stamp"><span><b>₮</b>词元<br>SPEC VS-01</span></div>
+</header>
+
+<style>
+.pt6{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;margin-top:2px}
+.pt{border:1px solid rgba(27,38,87,.22);background:#FFFDF6;overflow:hidden}
+.pt-c{height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:0 4px}
+.pt-t{font-family:Georgia,"Times New Roman",serif;font-size:12px;font-weight:700;color:#1B2657}
+.pt-h{font-family:Consolas,monospace;font-size:10px;color:#41507E}
+.pt-d{font-family:Consolas,monospace;font-size:9.5px;color:#23283C;text-align:center;padding:5px 3px 6px;border-top:1px solid rgba(27,38,87,.18);line-height:1.5}
+.prule{margin-top:12px;border:1px solid rgba(27,38,87,.22);background:#FFFDF6;padding:11px 14px;font-size:11.5px;color:#23283C;line-height:1.65}
+.prule b{color:#1B2657}
+.den-pp{font-family:Consolas,monospace;font-size:9.5px;color:#1B2657;text-align:center;padding:4px;background:rgba(27,38,87,.05);border-top:1px dotted rgba(27,38,87,.25);line-height:1.5}
+.den-pp i{display:inline-block;width:10px;height:10px;border:1px solid rgba(27,38,87,.4);vertical-align:-1px;margin-right:4px}
+</style>
+
+<section class="sec">
+  <div class="sh"><span class="sh-n">01</span><h2>色板 · COLOUR PALETTE</h2><span class="sh-en">8 LOCKED + 6 DERIVED</span></div>
+  <div class="rule"></div>
+  <div class="note">
+    基准五色（<b>#F5EFDE / #1B2657 / #3F6CC4 / #B08A3E / #D8BC72</b>）为锁定色，任何面额、任何工序不得替换、不得加渐变。
+    辅助三色只用于标注与警示，<b>不进入票面主视觉</b>。单面实际用色 6–8 个专色（不含下方六档纸色淡网），连同纸色淡网合计 7–9 个，仍在规范书「单面 6–10 专色」区间内。
+  </div>
+  <div class="pg">
+    <div class="sw">
+      <div class="sw-chip" style="background:#1B2657;color:#F5EFDE"><span class="sw-tag">基准 01</span><span class="sw-hex">#1B2657</span></div>
+      <div class="sw-body">
+        <div class="sw-name">藏青 <span>NAVY</span></div>
+        <div class="sw-use"><b>主线条</b>｜凹印主景轮廓、主体文字、徽志正稿、边框主线</div>
+        <div class="sw-meta">RGB 27,38,87 · C100 M92 Y42 K42 · ≈ PANTONE 2766 C</div>
+      </div>
+    </div>
+    <div class="sw">
+      <div class="sw-chip" style="background:#3F6CC4;color:#F5EFDE"><span class="sw-tag">基准 02</span><span class="sw-hex">#3F6CC4</span></div>
+      <div class="sw-body">
+        <div class="sw-name">宝蓝 <span>ROYAL BLUE</span></div>
+        <div class="sw-use"><b>底纹</b>｜防复印经纬底纹、次一级线条、英文机构名副色</div>
+        <div class="sw-meta">RGB 63,108,196 · C78 M58 Y0 K0 · ≈ PANTONE 2728 C</div>
+      </div>
+    </div>
+    <div class="sw">
+      <div class="sw-chip" style="background:#F5EFDE;color:#1B2657;border-bottom:1px solid rgba(27,38,87,.2)"><span class="sw-tag">基准 03</span><span class="sw-hex">#F5EFDE</span></div>
+      <div class="sw-body">
+        <div class="sw-name">纸色 <span>PAPER</span></div>
+        <div class="sw-use"><b>纸色</b>｜纸张本色、负形留白、徽志负形眼与凹印反白</div>
+        <div class="sw-meta">RGB 245,239,222 · 无专色（本色棉麻纸）· 面积占比 62 %</div>
+      </div>
+    </div>
+    <div class="sw">
+      <div class="sw-chip" style="background:#B08A3E;color:#1B2657"><span class="sw-tag">基准 04</span><span class="sw-hex">#B08A3E</span></div>
+      <div class="sw-body">
+        <div class="sw-name">金 <span>GOLD</span></div>
+        <div class="sw-use"><b>金属点缀</b>｜凹印鲸徽、开窗安全线、冠字号、面额数字主色</div>
+        <div class="sw-meta">RGB 176,138,62 · C32 M48 Y100 K12 · ≈ PANTONE 872 C（金属）</div>
+      </div>
+    </div>
+    <div class="sw">
+      <div class="sw-chip" style="background:#D8BC72;color:#1B2657"><span class="sw-tag">基准 05</span><span class="sw-hex">#D8BC72</span></div>
+      <div class="sw-body">
+        <div class="sw-name">浅金 <span>PALE GOLD</span></div>
+        <div class="sw-use"><b>金属点缀</b>｜珠圈高光、微缩文字衬底、面额大写数字描边</div>
+        <div class="sw-meta">RGB 216,188,114 · C18 M24 Y62 K0 · ≈ PANTONE 871 C（金属）</div>
+      </div>
+    </div>
+    <div class="sw">
+      <div class="sw-chip" style="background:#A63A32;color:#F5EFDE"><span class="sw-tag aux">辅助 06</span><span class="sw-hex">#A63A32</span></div>
+      <div class="sw-body">
+        <div class="sw-name">警示朱 <span>ALERT RED</span></div>
+        <div class="sw-use"><b>警示色</b>｜警示语、伪券提示条、机读标记点；占比 &lt; 0.5 %</div>
+        <div class="sw-meta">RGB 166,58,50 · C22 M92 Y88 K12 · ≈ PANTONE 1805 C</div>
+      </div>
+    </div>
+    <div class="sw">
+      <div class="sw-chip" style="background:#23283C;color:#D8BC72"><span class="sw-tag aux">辅助 07</span><span class="sw-hex">#23283C</span></div>
+      <div class="sw-body">
+        <div class="sw-name">墨色 <span>INK</span></div>
+        <div class="sw-use"><b>小字正文字</b>｜法偿声明、印制说明；替代纯黑，避免死板</div>
+        <div class="sw-meta">RGB 35,40,60 · C88 M80 Y52 K52 · 禁止使用 #000000</div>
+      </div>
+    </div>
+    <div class="sw">
+      <div class="sw-chip" style="background:#8C99B8;color:#1B2657"><span class="sw-tag aux">辅助 08</span><span class="sw-hex">#8C99B8</span></div>
+      <div class="sw-body">
+        <div class="sw-name">灰蓝 <span>SLATE</span></div>
+        <div class="sw-use"><b>技术标注</b>｜制版标注线、辅助网格、本图所有尺寸引线</div>
+        <div class="sw-meta">RGB 140,153,184 · 仅限印前制版，不着墨于成品票面</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ratio">
+    <div class="ratio-t">单面面积配比 · AREA BUDGET（以 ₮100,000,000 基准券为例）</div>
+    <div class="ratio-bar">
+      <i style="flex:62;background:#F5EFDE;border-right:1px solid rgba(27,38,87,.25)"></i>
+      <i style="flex:18;background:#1B2657"></i>
+      <i style="flex:10;background:#3F6CC4"></i>
+      <i style="flex:7;background:#B08A3E"></i>
+      <i style="flex:2.5;background:#D8BC72"></i>
+      <i style="flex:.5;background:#A63A32"></i>
+    </div>
+    <div class="ratio-lg">
+      <span><b style="background:#F5EFDE"></b>纸色 62 %</span>
+      <span><b style="background:#1B2657"></b>藏青 18 %</span>
+      <span><b style="background:#3F6CC4"></b>宝蓝 10 %</span>
+      <span><b style="background:#B08A3E"></b>金 7 %</span>
+      <span><b style="background:#D8BC72"></b>浅金 2.5 %</span>
+      <span><b style="background:#A63A32"></b>警示朱 0.5 %</span>
+    </div>
+  </div>
+
+  <div class="subhd">面额纸色 · DERIVED PAPER TINTS　（派生色，非新增基色；六档主币各一）</div>
+  <div class="pt6">
+    <div class="pt"><div class="pt-c" style="background:#D8E2E9"><span class="pt-t">₮10,000,000</span><span class="pt-h">#D8E2E9</span></div><div class="pt-d">专色 #24506B ｜ 对比度 <b>6.56</b> : 1<br>压印 <b>#91AEC0</b></div></div>
+    <div class="pt"><div class="pt-c" style="background:#D8E9E6"><span class="pt-t">₮20,000,000</span><span class="pt-h">#D8E9E6</span></div><div class="pt-d">专色 #1F5A52 ｜ 对比度 <b>6.33</b> : 1<br>压印 <b>#91C0B9</b></div></div>
+    <div class="pt"><div class="pt-c" style="background:#DEDAE7"><span class="pt-t">₮50,000,000</span><span class="pt-h">#DEDAE7</span></div><div class="pt-d">专色 #4A3A6E ｜ 对比度 <b>7.21</b> : 1<br>压印 <b>#A299B8</b></div></div>
+    <div class="pt"><div class="pt-c" style="background:#D8DBE9"><span class="pt-t">₮100,000,000</span><span class="pt-h">#D8DBE9</span></div><div class="pt-d">专色 #1B2657 ｜ 对比度 <b>10.42</b> : 1<br>压印 <b>#8F98C1</b></div></div>
+    <div class="pt"><div class="pt-c" style="background:#E9E0D8"><span class="pt-t">₮200,000,000</span><span class="pt-h">#E9E0D8</span></div><div class="pt-d">专色 #8A5A2B ｜ 对比度 <b>4.50</b> : 1<br>压印 <b>#C1A88F</b></div></div>
+    <div class="pt"><div class="pt-c" style="background:#E7E3DA"><span class="pt-t">₮500,000,000</span><span class="pt-h">#E7E3DA</span></div><div class="pt-d">专色 #2E2717 ｜ 对比度 <b>11.56</b> : 1<br>压印 <b>#B8AF98</b></div></div>
+  </div>
+  <div class="prule">
+    <b>派生规则：</b>每档纸色由该档专属专色在 <b>HLS</b> 空间派生 —— <b>保色相不变</b>、明度固定 <b>0.880</b>、饱和度 = 专色饱和度 × <b>0.55</b>（下限 <b>0.20</b>）。<b>不采用「与白色线性混合」</b>：该做法会把各档一起推向中性灰、丢失色相辨识度，使纸色之间不可区分。
+    <br><b>对比度：</b>专色文字（面额数字、机构名、徽志等）在其自身纸色上的实测对比度依次为 6.56 / 6.33 / 7.21 / 10.42 / 4.50 / 11.56，<b>全部 ≥ 4.5 : 1</b>（WCAG 2.1 AA，规范书 6.4.1）；最低一档为 ₮200,000,000 的 4.50，仍达标。
+    <br><b>用色影响：</b>每档纸色为一张淡网，单面实际用色由 6–8 个升至 <b>7–9 个专色</b>，仍在规范书「单面 6–10 专色」区间内。<br><b>压印浅字色</b>：每档另配一个自该档专色派生的浅字色（规范书 4.4.6 同表），六档依次为 <b>#91AEC0 / #91C0B9 / #A299B8 / #8F98C1 / #C1A88F / #B8AF98</b>，用于「DeepSeek」压印字与压印年份；其在本档纸色上的对比度仅 <b>1.60 ~ 2.05 : 1</b> —— 属有意压淡的印迹，<b>不承担识别功能</b>，不适用 4.5 : 1 对比度红线，也不受字号下限约束。
+    <br><b>规则出处：</b>压印浅字色的派生规则见规范书 <b>4.4.6</b>（保留色相 / 明度 <b>0.660</b> / 饱和度 <code>S = max(专色 S × 0.55, 0.18)</code>）—— 其下限 <b>0.18</b> 与纸色的 <b>0.20</b> <b>不同，两者不得混用</b>，且该下限并非空条款：六档中 <b>50,000,000 档 #4A3A6E 同时触及两个下限</b>（纸色取 0.20、压印浅字色取 0.18），500,000,000 档 #2E2717 纸色取 0.20、压印浅字色取 0.1833。派生规则正文以规范书为准，<b>本图不重复定义</b>。
+  </div>
+
+  <div class="ban">
+    <div class="ban-it"><s>禁用</s> 用纯黑 #000000 代替藏青<em>NO #000000</em></div>
+    <div class="ban-it"><s>禁用</s> 在任一基准色上叠加渐变或透明混合<em>NO GRADIENT</em></div>
+    <div class="ban-it"><s>禁用</s> 金属色用作小字正文（低于 2.4 mm 字高）<em>NO METAL SMALL TEXT</em></div>
+    <div class="ban-it"><s>禁用</s> 引入基准色以外的任何色相<em>NO NEW HUE</em></div>
+  </div>
+</section>
+<style>
+.gridsvg{display:block;background:#EFE7D3;border:1px solid rgba(27,38,87,.28);margin:4px 0 12px}
+.legend{display:flex;gap:24px;flex-wrap:wrap;font-size:11.5px;color:#41507E;margin-bottom:14px}
+.legend i{display:inline-block;width:28px;height:0;border-top:3px solid #1B2657;vertical-align:middle;margin-right:7px}
+.legend i.dash{border-top:3px dashed #B08A3E}
+.legend i.dot{border-top:3px dotted #3F6CC4}
+.legend i.gr{border-top:0;height:10px;width:10px;background:#C3CEE4;border:1px solid #7D8DB3;margin-right:8px}
+table{width:100%;border-collapse:collapse;background:#FFFDF6;border:1px solid rgba(27,38,87,.28)}
+th,td{border:1px solid rgba(27,38,87,.15);padding:7px 9px;text-align:left;vertical-align:middle}
+thead th{background:#1B2657;color:#F5EFDE;font-size:10.5px;letter-spacing:.09em;font-weight:600;white-space:nowrap}
+tbody td{font-size:11.5px;vertical-align:middle}
+tbody tr:nth-child(even) td{background:#FAF6EA}
+.num{font-family:Consolas,monospace;font-size:10.5px;color:#2C4A9B;white-space:nowrap}
+.el{font-weight:600;color:#1B2657}
+.el em{font-style:normal;font-family:"Times New Roman",serif;font-size:9.5px;letter-spacing:.14em;color:#6C7AA8;display:block}
+.smp{font-family:"Noto Serif SC",SimSun,serif;color:#1B2657;line-height:1.1;white-space:nowrap}
+
+/* 03 type table */
+.ftab th:nth-child(1),.ftab td:nth-child(1){width:32px;text-align:center}
+.ftab th:nth-child(2),.ftab td:nth-child(2){width:196px}
+.ftab th:nth-child(3),.ftab td:nth-child(3){width:248px}
+.ftab th:nth-child(4),.ftab td:nth-child(4){width:74px}
+.ftab th:nth-child(5),.ftab td:nth-child(5){width:74px}
+.ftab th:nth-child(6),.ftab td:nth-child(6){width:150px}
+.ftab th:nth-child(7),.ftab td:nth-child(7){width:96px}
+.ftab td:nth-child(1){font-family:Consolas,monospace;font-size:13px;color:#B08A3E;font-weight:700}
+.ftab td:nth-child(6){font-family:Consolas,monospace;font-size:10px;color:#41507E;white-space:nowrap}
+.ftab td:nth-child(7){font-family:Consolas,monospace;font-size:10.5px;font-weight:700}
+.fam{font-size:10.5px;color:#41507E;line-height:1.45}
+.fam b{display:block;font-size:11.5px;color:#1B2657;font-weight:600}
+.tnum{font-family:Consolas,monospace;font-size:13px;font-weight:700;color:#1B2657}
+.tnum span{display:block;font-size:9.5px;font-weight:400;color:#7885AE}
+.smp-in{display:flex;align-items:center;min-height:56px}
+</style>
+
+<style>
+  .axbox{margin:14px 0 18px;border:1px solid rgba(27,38,87,.20);border-left:5px solid #3F6CC4;
+         background:#F2F5FB;padding:12px 15px;font-size:12.8px;color:#3A4257;line-height:1.72}
+  .axbox b{color:#1B2657}
+  .axbox code{font-family:Consolas,monospace;font-size:12.5px;background:#E4EAF6;padding:1px 5px;border-radius:2px}
+  .s2tab{width:100%;border-collapse:collapse;margin-top:6px}
+  .s2tab th,.s2tab td{border:1px solid rgba(27,38,87,.15);padding:7px 9px;vertical-align:top;
+                      overflow-wrap:anywhere;word-break:break-word}
+  .s2tab th{background:#1B2657;color:#D8BC72;font-size:12.5px;font-weight:700;text-align:left;letter-spacing:.3px}
+  .s2tab th span{color:#8C99B8;font-weight:400;font-size:11px}
+  .s2tab tbody tr:nth-child(even) td{background:#FAF6EA}
+  .s2tab td.c{font-family:Consolas,monospace;font-size:13px;color:#B08A3E;text-align:center;white-space:nowrap}
+  .s2tab td.lb b{display:block;color:#1B2657;font-size:13.5px}
+  .s2tab td.lb b{display:block;color:#1B2657;font-size:13.5px}
+  .s2tab td.lb span{display:block;color:#7885AE;font-size:11px;letter-spacing:.4px;margin-top:2px}
+  .s2tab td.num{font-family:Consolas,monospace;font-size:12px;color:#1B2657;line-height:1.6;
+                overflow-wrap:anywhere;word-break:break-word}
+  .s2tab td:last-child{font-size:12.4px;line-height:1.7;overflow-wrap:anywhere}
+  .s2tab code{font-family:Consolas,monospace;font-size:12px;background:#E4EAF6;padding:1px 4px;border-radius:2px}
+</style>
+
+<section class="sec">
+  <div class="sh"><span class="sh-n">02</span><h2>基准网格与版式定位 · BASE GRID &amp; LAYOUT</h2>
+    <span class="sh-en">1890 × 882 PX @ 12.6 PX/MM · <b>y 向下 · 与票面同向</b> · SPEC 2.3.3 / 2.3.4 / 2.4</span></div>
+  <div class="rule"><b>本图与实体票面同向</b>：票面 <b>150.0 × 70.0 mm</b>，按 12.6 px/mm 换算得工作画布 <b>1890 × 882 px</b>；<b>坐标原点在票面左上角</b>，x 向右为正、<b>y 向下为正</b>，与渲染稿 <code>build/mockup-100.png</code> 完全同向，可直接叠图对读。全部要素的尺寸与 y 范围逐行取自《鲸元券货币规范书》<b>2.3.3</b>（版心与边距）、<b>2.3.4</b>（折线保护带）、<b>2.4.1</b>（要素坐标表）与 <b>2.4.3(a)</b>（固定锚点）。</div>
+  <div class="axbox">
+    <b>坐标口径说明（务必先读）</b><br>
+    ① <b>本图 y 轴向下</b>，原点在票面左上角，与 <code>build/mockup-100.png</code> 同向；<b>规范书 2.4.x 条文中的 Y 亦为同一口径</b>（自顶向下），两处数值可直接对应，无需换算。<br>
+    ② 若需取「距下裁切线」的距离，用 <code>Y_自下 ＝ 70.0 − y_画布/12.6</code>；本图每个标注与表中每一行都同时给出这两个值。<br>
+    ③ 判定依据：规范书 2.4.1 对印注写「中心<b>距下裁切线</b> 70.0 − 62.38 ＝ 7.62 mm」，即 62.38 为自顶向下的画布值；2.4.3(a) 鲸徽左上角 (10.0, <b>8.0</b>) ＋ 主徽长边 18.00 mm ＝ 机构中文名起点 y <b>26.0</b>，再 ＋3.4 字高 ＋0.8 净距 ＝ 英文名起点 y <b>30.2</b>，三段闭合成环，只有自顶向下才自洽。<br>
+    ④ <b>上一版本图曾把规范书 Y 当作「自下向上」而整图上下一律镜像</b>（盲文块被画到右上、对印被画到左上、微缩带被画到券面上部）。本版已按画布口径重绘，并与示意稿实测点逐点核对。
+  </div>
+  <div class="legend">
+    <span><i style="background:#1B2657"></i>实线藏青 ＝ 裁切边 / 版心</span>
+    <span><i style="background:#3F6CC4"></i>点线宝蓝 ＝ 文字安全距 6.0</span>
+    <span><i style="background:#B08A3E"></i>虚线金 ＝ 出血（外扩 3.0）／ 主景安全距 4.0</span>
+    <span><i style="background:#A63A32"></i>红斜纹 ＝ 折线保护带</span>
+    <span><i style="background:#8C99B8"></i>灰蓝框 ＝ 基准网格 1 mm</span>
+    <span><i style="background:#3F6CC4"></i>蓝底 ＝ 纸基（抄纸成型）</span>
+    <span><i style="background:#B08A3E"></i>金 ＝ 开窗安全线</span>
+    <span><i style="background:#4A3A6E"></i>紫块 ＝ 潜像块</span>
+    <span><i style="background:#C2185B"></i>品红框 ＝ 红外吸收对 F-06</span>
+    <span><i style="background:#1B2657"></i>藏青实条 ＝ 微缩文字带</span>
+    <span><i style="background:#1B2657"></i>十字丝 ＝ 固定锚点</span>
+  </div>
+      <svg class="gridsvg" viewBox="-140 -190 2170 1520" width="1312" height="919" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+      <pattern id="g1" width="12.6" height="12.6" patternUnits="userSpaceOnUse"><path d="M12.6 0 V12.6 M0 12.6 H12.6" stroke="#1B2657" stroke-width="0.32" opacity="0.22"/></pattern>
+      <pattern id="g10" width="126" height="126" patternUnits="userSpaceOnUse"><rect width="126" height="126" fill="url(#g1)"/><path d="M126 0 V126 M0 126 H126" stroke="#1B2657" stroke-width="0.9" opacity="0.30"/></pattern>
+      <pattern id="gnet" width="3.53" height="3.53" patternUnits="userSpaceOnUse"><circle cx="1.76" cy="1.76" r="0.85" fill="#1B2657" opacity="0.30"/></pattern>
+      <pattern id="fold" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="12" height="12" fill="#A63A32" opacity="0.10"/><path d="M0 0 V12" stroke="#A63A32" stroke-width="2.2" opacity="0.55"/></pattern>
+      <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#8C99B8"/></marker>
+      <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#B08A3E"/></marker>
+      </defs>
+      <rect x="-37.8" y="-37.8" width="1965.6" height="957.6" fill="#F5EFDE" stroke="#B08A3E" stroke-width="2" stroke-dasharray="14 9"/>
+      <rect x="0" y="0" width="1890" height="882" fill="url(#g10)" stroke="#1B2657" stroke-width="3.4"/>
+      <rect x="0" y="0" width="1890" height="882" fill="url(#gnet)" opacity="0.55"/>
+      <rect x="592.2" y="0" width="75.6" height="882" fill="url(#fold)" stroke="#A63A32" stroke-width="1.2" stroke-dasharray="9 6"/>
+      <rect x="1222.2" y="0" width="75.6" height="882" fill="url(#fold)" stroke="#A63A32" stroke-width="1.2" stroke-dasharray="9 6"/>
+      <rect x="0" y="403.2" width="1890" height="75.6" fill="url(#fold)" stroke="#A63A32" stroke-width="1.2" stroke-dasharray="9 6"/>
+      <rect x="0" y="550.62" width="1890" height="75.6" fill="url(#fold)" stroke="#A63A32" stroke-width="1.2" stroke-dasharray="9 6"/>
+      <text x="630" y="452" font-size="15" font-weight="700" fill="#A63A32" transform="rotate(90 630 452)">折线保护带 6.0（纵 1 ｜ X 47.0 ~ 53.0）</text>
+      <text x="1260" y="452" font-size="15" font-weight="700" fill="#A63A32" transform="rotate(90 1260 452)">折线保护带 6.0（纵 2 ｜ X 97.0 ~ 103.0）</text>
+      <rect x="50.4" y="50.4" width="1789.2" height="781.2" fill="none" stroke="#B08A3E" stroke-width="1.6" stroke-dasharray="16 10" opacity="0.85"/>
+      <rect x="75.6" y="75.6" width="1738.8" height="730.8" fill="none" stroke="#3F6CC4" stroke-width="1.8" stroke-dasharray="4 5"/>
+      <rect x="126" y="100.8" width="1638" height="680.4" fill="none" stroke="#1B2657" stroke-width="2.6" stroke-dasharray="22 7 5 7"/>
+      <circle cx="592.2" cy="516.6" r="138.6" fill="none" stroke="#3F6CC4" stroke-width="2.4" stroke-dasharray="13 8"/>
+      <text x="592.2" y="524" text-anchor="middle" font-size="30" font-weight="700" fill="#3F6CC4" opacity="0.42">100000000</text>
+      <rect x="415.8" y="226.8" width="226.8" height="113.4" fill="#8C99B8" fill-opacity="0.20" stroke="#8C99B8" stroke-width="1.5" stroke-dasharray="10 6"/>
+      <text x="529.2" y="292" text-anchor="middle" font-size="34" font-weight="700" fill="#8C99B8" opacity="0.72">100000000</text>
+      <rect x="943.19" y="50.4" width="18.9" height="781.2" fill="#B08A3E" opacity="0.85"/>
+      <rect x="948.39" y="50.4" width="8.5" height="781.2" fill="#D8BC72" opacity="0.9"/>
+      <rect x="948.39" y="50.4" width="8.5" height="781.2" fill="none" stroke="#B08A3E" stroke-width="1"/>
+      <rect x="943.19" y="50.4" width="18.9" height="50.4" fill="#F5EFDE" stroke="#B08A3E" stroke-width="1.1"/>
+      <rect x="943.19" y="176.4" width="18.9" height="50.4" fill="#F5EFDE" stroke="#B08A3E" stroke-width="1.1"/>
+      <rect x="943.19" y="302.4" width="18.9" height="50.4" fill="#F5EFDE" stroke="#B08A3E" stroke-width="1.1"/>
+      <rect x="943.19" y="428.4" width="18.9" height="50.4" fill="#F5EFDE" stroke="#B08A3E" stroke-width="1.1"/>
+      <rect x="943.19" y="554.4" width="18.9" height="50.4" fill="#F5EFDE" stroke="#B08A3E" stroke-width="1.1"/>
+      <rect x="943.19" y="680.4" width="18.9" height="50.4" fill="#F5EFDE" stroke="#B08A3E" stroke-width="1.1"/>
+      <text x="952.6" y="86" text-anchor="middle" font-size="11" font-weight="700" fill="#B08A3E" transform="rotate(90 952.6 86)">开窗段 4.0</text>
+      <rect x="491.4" y="478.8" width="151.2" height="100.8" fill="#4A3A6E" fill-opacity="0.16" stroke="#4A3A6E" stroke-width="2" stroke-dasharray="9 6"/>
+      <text x="567" y="541" text-anchor="middle" font-size="44" font-weight="700" fill="#4A3A6E" opacity="0.55">100</text>
+      <path d="M529.2 264.6 H604.8 M567 226.8 V302.4" stroke="#1B2657" stroke-width="2.4"/>
+      <circle cx="567" cy="264.6" r="15.6" fill="none" stroke="#1B2657" stroke-width="2.4"/>
+      <path d="M945 151.2 V730.8" stroke="#B08A3E" stroke-width="2" stroke-dasharray="12 8"/>
+      <path d="M885 151.2 H1005 M885 730.8 H1005" stroke="#B08A3E" stroke-width="3"/>
+      <text x="945" y="450" text-anchor="middle" font-size="15" font-weight="700" fill="#B08A3E" transform="rotate(90 945 450)">主景人物中轴 X = 券长 × 0.50 = 75.0</text>
+      <rect x="126" y="613.62" width="1638" height="8.82" fill="#1B2657" opacity="0.80"/>
+      <rect x="126" y="647.64" width="1638" height="37.8" fill="#C2185B" opacity="0.20" stroke="#C2185B" stroke-width="1.6" stroke-dasharray="10 6"/>
+      <g transform="translate(100.04 786.0)">
+      <circle r="37.8" fill="#F5EFDE" fill-opacity="0.55" stroke="#1B2657" stroke-width="2.6"/>
+      <path d="M-26.46 0 A 26.46 26.46 0 0 1 26.46 0 Z" fill="#1B2657" fill-opacity="0.85"/>
+      <text x="0" y="-52" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1B2657">对印 · 正面半圆</text>
+      <text x="0" y="-34" text-anchor="middle" font-size="12.5" fill="#3A4257">(100.0, 786.0) px</text>
+      </g>
+      <g transform="translate(1789.96 786.0)">
+      <circle r="37.8" fill="none" stroke="#1B2657" stroke-width="2" stroke-dasharray="8 6"/>
+      <path d="M-26.46 0 A 26.46 26.46 0 0 0 26.46 0 Z" fill="#1B2657" fill-opacity="0.28"/>
+      <text x="0" y="-52" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1B2657">对印 · 背面半圆（镜像）</text>
+      <text x="0" y="-34" text-anchor="middle" font-size="12.5" fill="#3A4257">(1790.0, 786.0) px</text>
+      </g>
+      <rect x="1295.28" y="166.32" width="493.92" height="30.24" fill="#1B2657" opacity="0.07" stroke="#1B2657" stroke-width="1.4" stroke-dasharray="8 5"/>
+      <text x="1542.24" y="190" text-anchor="middle" font-size="26" font-weight="700" fill="#1B2657" letter-spacing="2">WY 100000000 8842A</text>
+      <circle cx="75.6" cy="346.5" r="6.3" fill="#1B2657"/>
+      <circle cx="75.6" cy="384.3" r="6.3" fill="#1B2657"/>
+      <circle cx="75.6" cy="422.1" r="6.3" fill="#1B2657"/>
+      <circle cx="75.6" cy="459.9" r="6.3" fill="#1B2657"/>
+      <circle cx="75.6" cy="497.7" r="6.3" fill="#1B2657"/>
+      <circle cx="75.6" cy="535.5" r="6.3" fill="#1B2657"/>
+      <rect x="1738.8" y="730.8" width="75.6" height="75.6" fill="#1B2657" opacity="0.06" stroke="#1B2657" stroke-width="1.6" stroke-dasharray="8 5"/>
+      <circle cx="1776.6" cy="768.6" r="6.3" fill="#1B2657"/>
+      <circle cx="1776.6" cy="793.8000000000001" r="6.3" fill="#1B2657"/>
+      <circle cx="1776.6" cy="819.0" r="6.3" fill="#1B2657"/>
+      <circle cx="1801.8" cy="768.6" r="6.3" fill="#1B2657"/>
+      <circle cx="1801.8" cy="793.8000000000001" r="6.3" fill="#1B2657"/>
+      <circle cx="1801.8" cy="819.0" r="6.3" fill="#1B2657"/>
+      <path d="M126 0 V882" stroke="#1B2657" stroke-width="1.8" stroke-dasharray="7 6"/>
+      <path d="M113 0 h26 m-13 -13 v26" transform="translate(0 100.8)" stroke="#1B2657" stroke-width="2.6" fill="none"/>
+      <path d="M113 0 h26 m-13 -13 v26" transform="translate(0 327.6)" stroke="#1B2657" stroke-width="2.6" fill="none"/>
+      <path d="M113 0 h26 m-13 -13 v26" transform="translate(0 380.52)" stroke="#1B2657" stroke-width="2.6" fill="none"/>
+      <path d="M113 0 h26 m-13 -13 v26" transform="translate(0 730.8)" stroke="#1B2657" stroke-width="2.6" fill="none"/>
+      <path d="M806 752 H806" stroke="#8C99B8" stroke-width="1"/>
+      <circle cx="806" cy="752" r="7" fill="none" stroke="#8C99B8" stroke-width="2"/>
+      <circle cx="806" cy="774" r="5" fill="none" stroke="#8C99B8" stroke-width="2"/>
+      <path d="M592.2 -60 V-30 M953 -60 V-30 M1222.2 -60 V-30 M1297.8 -60 V-30" stroke="#3F6CC4" stroke-width="1.6"/>
+      <rect x="592.2" y="-58" width="360.8" height="26" fill="#3F6CC4" opacity="0.16" stroke="#3F6CC4" stroke-width="1.4"/>
+      <text x="772.6" y="-40" text-anchor="middle" font-size="14" font-weight="700" fill="#1B2657">左列 · 纸基与安全要素</text>
+      <rect x="953" y="-58" width="269.2" height="26" fill="#8C99B8" opacity="0.14" stroke="#8C99B8" stroke-width="1.2"/>
+      <text x="1087.6" y="-40" text-anchor="middle" font-size="13" fill="#3A4257">空档 · 无要素区</text>
+      <rect x="1222.2" y="-58" width="75.6" height="26" fill="#A63A32" opacity="0.20" stroke="#A63A32" stroke-width="1.2"/>
+      <text x="1260" y="-40" text-anchor="middle" font-size="11" font-weight="700" fill="#A63A32">保护带 2</text>
+      <rect x="1297.8" y="-58" width="466.2" height="26" fill="#B08A3E" opacity="0.18" stroke="#B08A3E" stroke-width="1.4"/>
+      <text x="1530.9" y="-40" text-anchor="middle" font-size="14" font-weight="700" fill="#8A5A2B">右列 · 光变要素（无独立占位）</text>
+      <text x="592.2" y="-72" text-anchor="middle" font-size="14" font-weight="700" fill="#3F6CC4">47.0</text>
+      <text x="953" y="-72" text-anchor="middle" font-size="14" font-weight="700" fill="#3F6CC4">75.63</text>
+      <text x="1222.2" y="-72" text-anchor="middle" font-size="14" font-weight="700" fill="#3F6CC4">97.0</text>
+      <text x="1297.8" y="-72" text-anchor="middle" font-size="14" font-weight="700" fill="#3F6CC4">103.0</text>
+      <path d="M0 -128 H1890" stroke="#8C99B8" stroke-width="1.6" marker-start="url(#ar)" marker-end="url(#ar)"/>
+      <path d="M0 -128 V-112 M1890 -128 V-112" stroke="#8C99B8" stroke-width="1.4"/>
+      <text x="945" y="-136" text-anchor="middle" font-size="19" font-weight="700" fill="#1B2657">150.0 mm ＝ 1890 px</text>
+      <path d="M-84 0 V882" stroke="#8C99B8" stroke-width="1.6" marker-start="url(#ar)" marker-end="url(#ar)"/>
+      <path d="M-100 0 H-68 M-100 882 H-68" stroke="#8C99B8" stroke-width="1.4"/>
+      <text x="-96" y="441" text-anchor="middle" font-size="19" font-weight="700" fill="#1B2657" transform="rotate(-90 -96 441)">70.0 mm ＝ 882 px</text>
+      <text x="-120" y="-158" font-size="15" font-weight="700" fill="#3F6CC4">y ↓ 向下</text>
+      <rect x="330" y="24" width="430" height="128" fill="#FBF8EE" fill-opacity="0.97" stroke="#1B2657" stroke-width="1.4"/><rect x="330" y="24" width="4" height="128" fill="#1B2657"/><text x="344" y="49" font-size="17" font-weight="700" fill="#1B2657">版心 · 文字安全距 · 主景安全距</text><text x="344" y="70" font-size="13.5" fill="#3A4257">版心（2.3.3）10 / 10 / 8 / 8 ＝ 130.0 × 54.0</text><text x="344" y="89" font-size="13.5" fill="#3A4257">文字安全距 6.0（2.3.3，文字 · 号码 · 徽志）</text><text x="344" y="108" font-size="13.5" fill="#3A4257">主景安全距 4.0（2.3.3，可出版心不出血线）</text>
+      <rect x="96" y="196" width="300" height="106" fill="#FBF8EE" fill-opacity="0.97" stroke="#8C99B8" stroke-width="1.4"/><rect x="96" y="196" width="4" height="106" fill="#8C99B8"/><text x="110" y="221" font-size="17" font-weight="700" fill="#8C99B8">灰水印（数字）</text><text x="110" y="242" font-size="13.5" fill="#3A4257">中心 X 47.0 ｜ 画布 y 22.5</text><text x="110" y="261" font-size="13.5" fill="#3A4257">18.0 × 9.0 ｜ y 18.0 ~ 27.0</text><text x="110" y="280" font-size="13.5" fill="#3A4257">(592.2, 283.5) px</text>
+      <rect x="96" y="540" width="300" height="124" fill="#FBF8EE" fill-opacity="0.97" stroke="#3F6CC4" stroke-width="1.4"/><rect x="96" y="540" width="4" height="124" fill="#3F6CC4"/><text x="110" y="565" font-size="17" font-weight="700" fill="#3F6CC4">白水印（鲸首轮廓）</text><text x="110" y="586" font-size="13.5" fill="#3A4257">中心 X 47.0 ｜ 画布 y 41.0</text><text x="110" y="605" font-size="13.5" fill="#3A4257">Ø 22.0 ｜ y 30.0 ~ 52.0</text><text x="110" y="624" font-size="13.5" fill="#3A4257">(592.2, 516.6) px</text>
+      <rect x="980" y="60" width="300" height="148" fill="#FBF8EE" fill-opacity="0.97" stroke="#B08A3E" stroke-width="1.4"/><rect x="980" y="60" width="4" height="148" fill="#B08A3E"/><text x="994" y="85" font-size="17" font-weight="700" fill="#B08A3E">开窗安全线（固定锚点）</text><text x="994" y="106" font-size="13.5" fill="#3A4257">中心 X 75.63 ｜ 宽 1.5</text><text x="994" y="125" font-size="13.5" fill="#3A4257">画布 y 4.0 ~ 66.0 贯通</text><text x="994" y="144" font-size="13.5" fill="#3A4257">开窗段长 4.0 ｜ 6 段</text><text x="994" y="163" font-size="13.5" fill="#3A4257">(943.2, 50.4) ~ (962.1, 831.6) px</text>
+      <rect x="1000" y="238" width="300" height="112" fill="#FBF8EE" fill-opacity="0.97" stroke="#1B2657" stroke-width="1.4"/><rect x="1000" y="238" width="4" height="112" fill="#1B2657"/><text x="1014" y="263" font-size="17" font-weight="700" fill="#1B2657">冠字号（横排）· 19 字符</text><text x="1014" y="284" font-size="13.5" fill="#3A4257">左缘 102.8 ｜ 右缘 142.0</text><text x="1014" y="303" font-size="13.5" fill="#3A4257">画布 y 13.2 ~ 15.6 ｜ 39.2 × 2.4</text><text x="1014" y="322" font-size="13.5" fill="#3A4257">(1295.3, 166.3) px</text>
+      <rect x="96" y="690" width="330" height="132" fill="#FBF8EE" fill-opacity="0.97" stroke="#4A3A6E" stroke-width="1.4"/><rect x="96" y="690" width="4" height="132" fill="#4A3A6E"/><text x="110" y="715" font-size="17" font-weight="700" fill="#4A3A6E">潜像块 · 面额数字主块</text><text x="110" y="736" font-size="13.5" fill="#3A4257">潜像块 中心 X 45.0 ｜ y 42.0</text><text x="110" y="755" font-size="13.5" fill="#3A4257">12.0 × 8.0 ｜ y 38.0 ~ 46.0</text><text x="110" y="774" font-size="13.5" fill="#3A4257">面额数字主块 中心 (45.0, 21.0)</text>
+      <rect x="1180" y="600" width="340" height="132" fill="#FBF8EE" fill-opacity="0.97" stroke="#1B2657" stroke-width="1.4"/><rect x="1180" y="600" width="4" height="132" fill="#1B2657"/><text x="1194" y="625" font-size="17" font-weight="700" fill="#1B2657">微缩文字带 · 红外吸收对 F-06</text><text x="1194" y="646" font-size="13.5" fill="#3A4257">微缩带 画布 y 48.7 ~ 49.4 ｜ 带宽 1.6</text><text x="1194" y="665" font-size="13.5" fill="#3A4257">红外带 画布 y 51.4 ~ 54.4 ｜ 带高 3.0</text><text x="1194" y="684" font-size="13.5" fill="#3A4257">两者净距 2.0 ｜ 水平长度 2.4.1 未规定</text>
+      <rect x="1480" y="736" width="260" height="122" fill="#FBF8EE" fill-opacity="0.97" stroke="#1B2657" stroke-width="1.4"/><rect x="1480" y="736" width="4" height="122" fill="#1B2657"/><text x="1494" y="761" font-size="17" font-weight="700" fill="#1B2657">盲文块（右下角）</text><text x="1494" y="782" font-size="13.5" fill="#3A4257">距右、下裁切线各 6.0</text><text x="1494" y="801" font-size="13.5" fill="#3A4257">画布右下角 (144.0, 64.0)</text><text x="1494" y="820" font-size="13.5" fill="#3A4257">(1814.4, 806.4) px</text>
+      <rect x="0" y="940" width="600" height="96" fill="#FBF8EE" fill-opacity="0.97" stroke="#A63A32" stroke-width="1.4"/><rect x="0" y="940" width="4" height="96" fill="#A63A32"/><text x="14" y="965" font-size="17" font-weight="700" fill="#A63A32">折线保护带（2.3.4）</text><text x="14" y="986" font-size="13.5" fill="#3A4257">纵向 X 47.0 ~ 53.0 ｜ 97.0 ~ 103.0</text><text x="14" y="1005" font-size="13.5" fill="#3A4257">横向 Y 32.0 ~ 38.0 ｜ 43.7 ~ 49.7 ｜ 各宽 6.0</text>
+      <rect x="620" y="940" width="600" height="96" fill="#FBF8EE" fill-opacity="0.97" stroke="#1B2657" stroke-width="1.4"/><rect x="620" y="940" width="4" height="96" fill="#1B2657"/><text x="634" y="965" font-size="17" font-weight="700" fill="#1B2657">对印标记（正背同点）</text><text x="634" y="986" font-size="13.5" fill="#3A4257">中心 X 7.94（固定锚点）｜ 画布 y 62.38</text><text x="634" y="1005" font-size="13.5" fill="#3A4257">中心距下裁切线 7.62 mm ｜ 半圆 Ø 6.0</text>
+      <rect x="1240" y="940" width="650" height="96" fill="#FBF8EE" fill-opacity="0.97" stroke="#1B2657" stroke-width="1.4"/><rect x="1240" y="940" width="4" height="96" fill="#1B2657"/><text x="1254" y="965" font-size="17" font-weight="700" fill="#1B2657">凸点组（6.1.1）</text><text x="1254" y="986" font-size="13.5" fill="#3A4257">左缘距裁切线 6.0 ｜ 画布 y 35.0 中心</text><text x="1254" y="1005" font-size="13.5" fill="#3A4257">点径 1.0 ｜ 凸高 0.28 ｜ 点数按 6.1.2 档位编码</text>
+      <rect x="0" y="1060" width="620" height="96" fill="#FBF8EE" fill-opacity="0.97" stroke="#1B2657" stroke-width="1.4"/><rect x="0" y="1060" width="4" height="96" fill="#1B2657"/><text x="14" y="1085" font-size="17" font-weight="700" fill="#1B2657">固定锚点列（2.4.3(a)）· X ＝ 10.0</text><text x="14" y="1106" font-size="13.5" fill="#3A4257">画布 y 8.0 / 26.0 / 30.2 / 58.0</text><text x="14" y="1125" font-size="13.5" fill="#3A4257">距下裁切线 62.0 / 44.0 / 39.8 / 12.0 mm</text>
+      <rect x="640" y="1060" width="620" height="96" fill="#FBF8EE" fill-opacity="0.97" stroke="#B08A3E" stroke-width="1.4"/><rect x="640" y="1060" width="4" height="96" fill="#B08A3E"/><text x="654" y="1085" font-size="17" font-weight="700" fill="#B08A3E">主景人物（2.4.1）· 中轴 X ＝ 75.0</text><text x="654" y="1106" font-size="13.5" fill="#3A4257">画布 y 12.0 ~ 58.0 ｜ 人物净高 38.0 ~ 46.0</text><text x="654" y="1125" font-size="13.5" fill="#3A4257">宽度 2.4.1 未规定，本图不臆造</text>
+      <rect x="1280" y="1060" width="610" height="96" fill="#FBF8EE" fill-opacity="0.97" stroke="#8C99B8" stroke-width="1.4"/><rect x="1280" y="1060" width="4" height="96" fill="#8C99B8"/><text x="1294" y="1085" font-size="17" font-weight="700" fill="#8C99B8">防复印细网 · 基准网格</text><text x="1294" y="1106" font-size="13.5" fill="#3A4257">细网周期 0.14（示意，非实际密度）</text><text x="1294" y="1125" font-size="13.5" fill="#3A4257">基准网格 1.0 mm ＝ 12.6 px ｜ 全幅 10500 格</text>
+      </svg>
+  <table class="s2tab">
+<colgroup><col style="width:42px"><col style="width:196px"><col style="width:262px"><col style="width:208px"><col style="width:96px"><col></colgroup>
+<thead><tr><th>#</th><th>元素 / ELEMENT</th><th>画布定位（mm ｜ px）<br><span>CANVAS · x 向右 ｜ y 向下</span></th><th>尺寸（mm ｜ px）</th><th>距下裁切线<br>Y（mm）</th><th>规范书依据与工艺说明</th></tr></thead>
+<tbody>
+<tr><td class="c">01</td><td class="lb"><b>票面成品 / 裁切边</b><span>CUT / TRIM</span></td><td class="num">原点 = 画布左上角 (0, 0)</td><td class="num">150.0 × 70.0 ｜ 1890 × 882 px</td><td class="num">—</td><td>2.3.3：成品裁切线四边 0 mm（原点即裁切位），裁切对位误差 ≤ ±0.5 mm。四角为<b>锐利直角（R0）</b>（2026-10-05 定案，角标已停用）。<b>本图 v 轴向下，原点在票面左上角</b>，与 <code>build/mockup-100.png</code> 同向。</td></tr>
+<tr><td class="c">02</td><td class="lb"><b>出血区</b><span>BLEED</span></td><td class="num">画布 (−3.0, −3.0)</td><td class="num">156.0 × 76.0 ｜ 1965.6 × 957.6 px</td><td class="num">—</td><td>2.3.3：四边各外扩 3.0 mm，图案必须满出血。</td></tr>
+<tr><td class="c">03</td><td class="lb"><b>版心</b><span>TYPE AREA</span></td><td class="num">画布 x 10.0 ~ 140.0 ｜ y 8.0 ~ 62.0</td><td class="num">130.0 × 54.0 ｜ 1638 × 680.4 px</td><td class="num">下缘 <b>8.0</b></td><td><b>2.3.3：版心内缩左 10.0 / 右 10.0 / 上 8.0 / 下 8.0 mm ⇒ 版心区 130.0 × 54.0 mm。</b>这是「版心」的<b>唯一</b>定义。本行为本次拆分后的<b>新增行</b>（原与 6.0 mm 安全距挤在同一行）。</td></tr>
+<tr><td class="c">04</td><td class="lb"><b>文字安全距</b><span>TYPE SAFETY MARGIN</span></td><td class="num">画布 x 6.0 ~ 144.0 ｜ y 6.0 ~ 64.0</td><td class="num">138.0 × 58.0 ｜ 1738.8 × 730.8 px</td><td class="num">下缘 <b>6.0</b></td><td>2.3.3：<b>距裁切线不少于 6.0 mm</b>，全部文字、号码、徽志均适用。<br><b>⚠ 该 6.0 mm 不适用于徽志</b>：徽志最小使用尺寸下限为<b>长边 5.00 mm</b>（§05 与规范书 4.3.4），票面主徽 18.00 mm、次徽 9.00 mm 均按其<b>自身下限</b>判定合格；若按 6.0 mm 字面判定，任何小于 6.0 mm 的徽志使用都将永远不合格，与本行立法目的相悖。</td></tr>
+<tr><td class="c">05</td><td class="lb"><b>主景安全距</b><span>PORTRAIT SAFETY MARGIN</span></td><td class="num">画布 x 4.0 ~ 146.0 ｜ y 4.0 ~ 66.0</td><td class="num">142.0 × 62.0 ｜ 1789.2 × 781.2 px</td><td class="num">下缘 <b>4.0</b></td><td>2.3.3：主景可延伸至版心外，但不得越过出血线。</td></tr>
+<tr><td class="c">06</td><td class="lb"><b>折线保护带 ×4（纵 2 ｜ 横 2）</b><span>FOLD GUARD BAND</span></td><td class="num">纵 X 47.0 ~ 53.0 ｜ 97.0 ~ 103.0<br>横 Y 32.0 ~ 38.0 ｜ 43.7 ~ 49.7</td><td class="num">各宽 6.0 ｜ 75.6 px</td><td class="num">—</td><td>2.3.4：以折线为中心、两侧各 3.0 mm。纵向折线位于 X 50.0 / 100.0；横向折线位于 Y 35.0 / 46.69。禁入：人像面部、徽志、面额数字、冠字号、安全线开窗，以及任何独立 OVI 色块。</td></tr>
+<tr><td class="c">07</td><td class="lb"><b>白水印（鲸首轮廓）</b><span>WHITE WATERMARK</span></td><td class="num">中心 X 47.0 ｜ 画布 y 41.0<br>(592.2, 516.6) px ｜ y 30.0 ~ 52.0</td><td class="num">Ø 22.0 ｜ Ø 277.2 px</td><td class="num">中心 <b>29.0</b></td><td>2.4.1：纸基，抄纸阶段成型。屏幕 SVG 无法呈现真实水印，本图以示意圆＋数字标注。</td></tr>
+<tr><td class="c">08</td><td class="lb"><b>灰水印（数字）</b><span>GREY WATERMARK</span></td><td class="num">中心 X 47.0 ｜ 画布 y 22.5<br>(592.2, 283.5) px ｜ y 18.0 ~ 27.0</td><td class="num">18.0 × 9.0 ｜ 226.8 × 113.4 px</td><td class="num">中心 <b>47.5</b></td><td>2.4.1：纸基。示意内容为九位面额数字。</td></tr>
+<tr><td class="c">09</td><td class="lb"><b>开窗安全线</b><span>WINDOWED THREAD</span></td><td class="num">中心 X <b>75.63</b>（固定锚点）｜ 画布 y 4.0 ~ 66.0<br>(943.2, 50.4) ~ (962.1, 831.6) px</td><td class="num">宽 1.5；开窗段长 4.0 ｜ 宽 18.9 px；窗口 50.4 px</td><td class="num">下缘 <b>4.0</b></td><td>2.4.1 / 2.4.2：<b>固定锚点 X ＝ 75.63 mm，全部主币一致</b>（原图误用旧值 X 100.0，本次一并更正）；Y 4.0 ~ 66.0 贯通（上下各让 4.0 mm）；嵌入 ＋ 丝印；磁光复合（非透射），倾斜 30° 时窗口段由品红 #C2185B 转绿 #1B7A4B。</td></tr>
+<tr><td class="c">10</td><td class="lb"><b>潜像块</b><span>LATENT IMAGE</span></td><td class="num">中心 X 45.0（＝ 券长 × 0.30）｜ 画布 y 42.0<br>(567, 529.2) px ｜ y 38.0 ~ 46.0</td><td class="num">12.0 × 8.0 ｜ 151.2 × 100.8 px</td><td class="num">中心 <b>28.0</b></td><td>2.4.1：凹印；券高 × 0.60 居中。<b>不得压入折线保护带</b>（7.2.1）——本块画布 y 38.0 ~ 46.0 与横向保护带 2（Y 43.7 ~ 49.7）相交，须按 7.2.1 处理。</td></tr>
+<tr><td class="c">11</td><td class="lb"><b>面额数字主块</b><span>DENOMINATION BLOCK</span></td><td class="num">中心 X 45.0（＝ 券长 × 0.30）｜ 画布 y 21.0（＝ 券高 × 0.30）<br>(567, 264.6) px</td><td class="num">9 位，字高 6.0（4.1.2）｜ 字高 75.6 px</td><td class="num">中心 <b>49.0</b></td><td>4.1.2：面额数字块与中文大写块总宽均 ≤ 40.0 mm，须完全落在 X 0.18L ~ 0.42L（K100 27.0 ~ 63.0）列内，且<b>不得越入纵向折线保护带 47.0 ~ 53.0</b> —— 两项要求<b>无法同时满足</b>，见下方警示条。</td></tr>
+<tr><td class="c">12</td><td class="lb"><b>主景人物</b><span>HERO FIGURE</span></td><td class="num">中轴 X 75.0（＝ 券长 × 0.50）｜ 画布 y 12.0 ~ 58.0<br>x 945 ｜ y 151.2 ~ 730.8 px</td><td class="num">占位高 46.0；人物净高 38.0 ~ 46.0 ｜ 占位 579.6 px</td><td class="num">下缘 <b>12.0</b></td><td>2.4.1：凹印；Y 12.0 ~ 58.0。<b>宽度 2.4.1 未规定</b>，本图只绘中轴与上下界，不臆造宽度。</td></tr>
+<tr><td class="c">13</td><td class="lb"><b>微缩文字带</b><span>MICROTEXT</span></td><td class="num">中心 X 75.0（＝ 券长 × 0.50）｜ 画布 y 48.7 ~ 49.4<br>y 613.6 ~ 622.4 px</td><td class="num">带宽 1.6；字高 0.63 ｜ 带宽 20.16 px；字高 8 px</td><td class="num">下缘 <b>21.3</b></td><td>2.4.1：胶印；券高 × 0.70 带，示意稿实测基线画布 Y <b>49.37</b>。<b>实际印制应 ≤ 0.25 mm</b>，示意稿字高不构成印制规格。<b>水平长度 2.4.1 未规定。</b></td></tr>
+<tr><td class="c">14</td><td class="lb"><b>红外吸收对 F-06</b><span>IR ABSORBING PAIR</span></td><td class="num">中心 X 75.0（＝ 券长 × 0.50）｜ 画布 y 51.4 ~ 54.4<br>y 647.6 ~ 685.4 px</td><td class="num">带高 3.0 ｜ 37.8 px</td><td class="num">下缘 <b>15.6</b></td><td>2.4.1：丝印；位于券高 × 0.80（＝ 56.0 mm）<b>上方</b>，带下缘距该线 1.6 mm；与微缩文字带净距 2.0 mm。<b>水平长度 2.4.1 未规定。</b></td></tr>
+<tr><td class="c">15</td><td class="lb"><b>对印标记（正背）</b><span>SEE-THROUGH REGISTER</span></td><td class="num">中心 X 7.94 / 142.06 ｜ 画布 y 62.38<br>(100.0, 786.0) / (1790.0, 786.0) px ｜ y 59.38 ~ 65.38</td><td class="num">半圆 Ø 6.0 ｜ Ø 75.6 px</td><td class="num">中心 <b>7.62</b></td><td>2.4.1：<b>固定锚点，正背同点</b>（背面为镜像 X ＝ 142.06），透光对合，允差 ±0.25 mm。圆心 X 7.94 越出版心左界 10.0，已由 2.6(b) 记为「角位对印的既定例外」；标记未列入 2.3.3 的 6.0 mm 安全距适用对象，按主景 4.0 mm 量级取值。<b>本图绘制点与示意稿实测 (100, 786) / (1790, 786) px 偏差 0.0。</b></td></tr>
+<tr><td class="c">16</td><td class="lb"><b>冠字号（横排）</b><span>SERIAL</span></td><td class="num">左缘 ＝ 券长 − 47.2 ＝ 102.8 ｜ 右缘 ＝ 券长 − 8.0 ＝ 142.0<br>画布 y 13.2 ~ 15.6 ｜ (1295.3, 166.3) px</td><td class="num">39.2 × 2.4 ｜ 493.9 × 30.24 px</td><td class="num">下缘 <b>54.4</b></td><td>2.4.1 / 2.4.4：号码印；字高 2.4 mm，共 19 字符（含 2 个半角空格）。<b>面额码为九位完整数字串（无千位分隔符）</b>，示意 <code>WY 100000000 8842A</code>。</td></tr>
+<tr><td class="c">17</td><td class="lb"><b>凸点组</b><span>TACTILE DOTS</span></td><td class="num">左缘距裁切线 6.0 ｜ 画布 y 35.0 中心<br>x 75.6 ｜ y 346.5 ~ 535.5 px</td><td class="num">点径 1.0；凸高 0.28 ｜ 点径 12.6 px</td><td class="num">中心 <b>35.0</b></td><td>2.4.3(a) / 6.1.1：纵向中心 Y ＝ 35.0 mm，距左裁切线 6.0 mm。点数按 6.1.2 档位编码，本图以 6 点示意排版，<b>不代表本券档位点数</b>。</td></tr>
+<tr><td class="c">18</td><td class="lb"><b>盲文块</b><span>BRAILLE BLOCK</span></td><td class="num">距右、下裁切线各 6.0 ｜ 画布右下角 (144.0, 64.0)<br>(1814.4, 806.4) px</td><td class="num">6.0 × 6.0（示意框）｜ 75.6 × 75.6 px</td><td class="num">块下缘 <b>6.0</b></td><td>2.4.3(a)：位于<b>右下角</b>；不得覆盖任何其他油墨图案，该区域纸张须平整无折线（6.4.4）。示意稿实测六点阵位于 (1791, 765) 附近，与本框一致。</td></tr>
+<tr><td class="c">19</td><td class="lb"><b>固定锚点列（2.4.3(a)）</b><span>FIXED ANCHORS</span></td><td class="num">X ＝ 10.0 ｜ 画布 y 8.0 / 26.0 / 30.2 / 58.0<br>x 126 ｜ y 100.8 / 327.6 / 380.5 / 730.8 px</td><td class="num">—</td><td class="num">距下裁切线 62.0 / 44.0 / 39.8 / 12.0</td><td>2.4.3(a)：鲸徽左上角 (10.0, 8.0)（版心左上锚点，实占 X 10.0 ~ 28.0、Y 8.0 ~ 23.5）；机构中文名起点 (10.0, 26.0)（徽志下缘 23.5 ＋ 2.5 间距）；机构英文名起点 (10.0, 30.2)（中文名下缘 ＋0.8）；法偿声明起点 (10.0, 58.0)（版心下缘内侧）。<b>按 §05 主徽长边 18.00 mm 绘制会与中文名重叠，故本图只绘锚点十字，不绘徽志实体。</b></td></tr>
+<tr><td class="c">20</td><td class="lb"><b>防复印细网</b><span>ANTI-COPY SCREEN</span></td><td class="num">全券面（版心内缩 0.5 mm 描边外）</td><td class="num">网点周期 0.14 ｜ 1.76 px / 网点</td><td class="num">—</td><td>2.4.1：胶印；满版 minus 版心内 0.5 mm 描边。周期 0.14 远小于屏幕像素，图中以浅色网点示意，<b>非实际网点密度</b>。</td></tr>
+<tr><td class="c">21</td><td class="lb"><b>基准网格</b><span>BASE GRID</span></td><td class="num">全幅铺满</td><td class="num">1.0 / 格 ｜ 12.6 px / 格</td><td class="num">—</td><td>2.3.2：1 mm 方格网，允许偏移 ±0.25 mm；150 × 70 ＝ 10500 格；10 mm 粗线仅作制版对位，不落墨。</td></tr>
+</tbody>
+</table>
+  <div class="warnbar">
+    <b>本图与规范书的已核实冲突与列关系说明：</b><br>
+    ① <b>2.4.2 的列关系与 2.4.1 的坐标值需按几何理解。</b>2.4.2 称「白水印 / 灰水印中心 X ＝ 中心线 − 28.0 ＝ 47.0、对印标记 X ＝ 7.94、主景人物中轴 X ＝ 券长 × 0.50 ＝ 75.0、安全线 X ＝ 75.63」同属<b>左列</b>；<b>右列（光变要素）自 2026-10-05 起不占版面</b>（OVI 施加于面额数字主块与票面主徽，二者分属左列与中区；空置的锚点带已删除，见规范书 2.4.1 注与 2.4.2）。故「两列之间由纵向折线保护带 2（X 97.0 ~ 103.0）分隔」在几何上应理解为<b>该保护带位于版心右段（Z3）的左界、而非两列正中</b>；本图按 2.4.1 / 2.4.2 的<b>坐标值</b>绘制，列带（左列 47.0 ~ 75.63 ｜ 空档 75.63 ~ 97.0 ｜ 保护带 97.0 ~ 103.0 ｜ 右列 103.0 ~ 140.0）只作<b>类别</b>示意，未补画辅助线。<br>
+    ② <b>4.1.2 的面额数字块落位区间包含折线保护带。</b>4.1.2 要求数字块「须完全落在 X 0.18L ~ 0.42L（K100 27.0 ~ 63.0）列内」且「不得越入纵向折线保护带（K100 47.0 ~ 53.0）」—— 后者完全落在前者之内，两项要求无法同时满足。<br>
+    <b>另有三处规范书未给值或取值不一致，本图不臆造、按原值并绘并如实标注：</b>微缩文字带与红外吸收对 F-06 的<b>水平长度</b>（2.4.1 只给带宽 / 带高与 Y 范围，本图正文按版心伸展示意）；主景人物的<b>宽度</b>（2.4.1 只给中轴与 Y 范围）；2.4.3(a) 的鲸徽左上角 (10.0, 8.0) 与机构中文名起点 (10.0, 26.0) 之间只余 18.0 mm，恰为主徽长边，<b>净距为 0</b>（按包围盒比例实占 Y 8.0 ~ 23.5，与 26.0 之间余 2.5 mm）—— 本图按 2.4.3(a) 只绘锚点十字，不绘徽志实体。
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sh"><span class="sh-n">03</span><h2>字体层级表 · TYPE HIERARCHY</h2><span class="sh-en">25 LEVELS / 0.60 – 7.94 MM · FROM RENDER</span></div>
+  <div class="rule"></div>
+  <div class="note">本表字号<b>全部以渲染稿实测为准</b>：正面取自 <code>build/render_mockup.py</code>、背面取自 <code>build/render_reverse.py</code> 中实际的 <code>font-size</code>；票面基准 <b>12.6 px/mm</b>（1890 × 882 px ＝ 150 × 70 mm，即 100,000,000 TOKEN 基准券），折合 mm ＝ px ÷ 12.6，折合 pt ＝ mm × 2.8346。<b>「示例字样」列不按比例</b>（各行按可读性单独放大），其下方<b>蓝色横条才是真实相对尺寸</b>，统一按 1.20 px/px 绘制。<br><b>本版修订：</b>面额整体上移六个数量级后，渲染稿的主景数字由 176 px 收缩为 <b>100 px</b>（正面）与 <b>86 px</b>（背面），冠字号统一为 30 px，右区竖排由 120＋80×3 改为四级递降 72 / 60 / 50 / 42。全票最小字号仍是正面微缩带 8 px（0.63 mm）与背面 7.5 px（0.60 mm）—— 这是<b>示意稿</b>的可印下限，真实凹印微缩应 ≤ 0.25 mm，示意稿字高不构成印制规格。<br><b>本版同步新增渲染稿：</b>机构中文名正面由 40 px 改为 <b>36 px</b>；删除「主景人物名 / 英文」两行（画面已无人物形象）；新增<b>压印</b>字标 <b>38 px</b> 与压印年份 <b>20 px</b> 两行 —— 压印色为专色派生浅色（100,000,000 档 <b>#8F98C1</b>），与纸色对比度 ≈ 2.0，属<b>有意压淡</b>的凹凸压印，不承担识别功能，不适用 6.4.1 的 4.5 : 1 对比度判据。</div>
+  <style>
+.ftab th:nth-child(1),.ftab td:nth-child(1){width:34px}
+.ftab th:nth-child(2),.ftab td:nth-child(2){width:262px}
+.ftab th:nth-child(3),.ftab td:nth-child(3){width:232px}
+.ftab th:nth-child(4),.ftab td:nth-child(4){width:76px;text-align:right}
+.ftab th:nth-child(5),.ftab td:nth-child(5){width:96px}
+.ftab th:nth-child(6),.ftab td:nth-child(6){width:72px}
+.ftab th:nth-child(7),.ftab td:nth-child(7){width:94px}
+.ftab tr.band td{background:#1B2657;color:#D8BC72;font-family:Consolas,monospace;font-size:11px;
+  letter-spacing:.14em;padding:5px 10px;border-color:#1B2657}
+.ftab tr.band td code{background:none;color:#F5EFDE}
+.smp2{display:flex;flex-direction:column;gap:5px;align-items:flex-start}
+.smp2 i{display:block;height:3px;background:#3F6CC4;opacity:.55;border-radius:1px}
+.ftab td .smp2 span{white-space:nowrap}
+.tmw{margin-top:20px;border:1px solid rgba(166,58,50,.45);border-left:6px solid #A63A32;
+     background:#FDF4E6;padding:16px 20px 18px}
+.tmw-h{font-size:13px;font-weight:700;letter-spacing:.04em;color:#A63A32;margin-bottom:10px}
+.tmw ol{margin:0;padding-left:20px}
+.tmw li{font-size:11.5px;line-height:1.75;color:#3A4468;margin-bottom:7px}
+.tmw li b{color:#1B2657}
+.tmw code{font-family:Consolas,monospace;font-size:11px;background:#EFE7D2;padding:1px 4px;border-radius:2px}
+.vtab td .vok{color:#2C7A4B;font-weight:700}
+.vtab td .vno{color:#A63A32;font-weight:700}
+.vtab td .vwarn{color:#B08A3E;font-weight:700}
+</style>
+<table class="ftab"><colgroup><col style="width:34px"><col style="width:262px"><col style="width:232px"><col style="width:76px"><col style="width:96px"><col style="width:72px"><col style="width:94px"><col style="width:446px"></colgroup><thead><tr><th>#</th><th>层级 / 用途</th><th>字体族</th><th>字号 px</th><th>折合 mm</th><th>字距 px</th><th>用色</th><th>示例字样 · 真实相对尺寸</th></tr></thead><tbody>
+      <tr><td class="num">1</td><td class="el">主景面额数字「100,000,000」<em>HERO DENOMINATION</em></td><td class="fam">Georgia Bold<br>制版回退：Noto Serif SC Black</td><td class="tnum">100</td><td class="tnum">7.94<span>22.50</span></td><td class="num">—</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:Georgia,&quot;Times New Roman&quot;,serif;font-size:30px;font-weight:700'>100,000,000</span><i style="width:120.0px"></i></div></td></tr>
+      <tr><td class="num">2</td><td class="el">主景面额英文<em>DENOMINATION · LATIN</em></td><td class="fam">Georgia Bold<br>全大写</td><td class="tnum">26</td><td class="tnum">2.06<span>5.85</span></td><td class="num">+5.5</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:Georgia,&quot;Times New Roman&quot;,serif;font-size:13px;font-weight:700;letter-spacing:2.5px'>ONE HUNDRED MILLION TOKENS</span><i style="width:31.2px"></i></div></td></tr>
+      <tr><td class="num">3</td><td class="el">面额大写中文<em>DENOMINATION IN WORDS</em></td><td class="fam">微软雅黑<br>汉字大写数字</td><td class="tnum">22</td><td class="tnum">1.75<span>4.95</span></td><td class="num">+2.0</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:&quot;Microsoft YaHei&quot;,sans-serif;font-size:14px;letter-spacing:1.4px'>壹億 TOKEN（词元）</span><i style="width:26.4px"></i></div></td></tr>
+      <tr><td class="num">4</td><td class="el">机构中文名「DeepSeek Token银行」<em>INSTITUTION · CHINESE</em></td><td class="fam">微软雅黑 Bold<br>备用：思源黑体 CN Bold</td><td class="tnum">36</td><td class="tnum">2.86<span>8.10</span></td><td class="num">+8.0</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:&quot;Microsoft YaHei&quot;,sans-serif;font-size:19px;font-weight:700;letter-spacing:2.6px'>DeepSeek Token银行</span><i style="width:43.2px"></i></div></td></tr>
+      <tr><td class="num">5</td><td class="el">机构英文名<em>INSTITUTION · LATIN</em></td><td class="fam">Georgia 600<br>全大写，禁用斜体</td><td class="tnum">18</td><td class="tnum">1.43<span>4.05</span></td><td class="num">+4.0</td><td class="num">#3F6CC4</td><td><div class="smp2"><span style='font-family:Georgia,&quot;Times New Roman&quot;,serif;font-size:12px;font-weight:600;letter-spacing:2.5px'>DEEPSEEK TOKEN BANK</span><i style="width:21.6px"></i></div></td></tr>
+      <tr><td class="num">6</td><td class="el">压印「DeepSeek」<em>DEBOSSING · WORDMARK</em></td><td class="fam">Georgia 400<br>压印色 #8F98C1（100,000,000 档专色派生浅色）；与纸色对比度 ≈ 2.0，属<b>有意压淡</b>的压印，不承担识别功能；不透明度 0.85</td><td class="tnum">24</td><td class="tnum">1.90<span>6.75</span></td><td class="num">+3.0</td><td class="num">#8F98C1</td><td><div class="smp2"><span style='font-family:Georgia,&quot;Times New Roman&quot;,serif;font-size:12px;font-weight:400;letter-spacing:1.5px;color:#8F98C1'>DeepSeek</span><i style="width:28.8px"></i></div></td></tr>
+      <tr><td class="num">7</td><td class="el">压印年份「（2023-）」<em>DEBOSSING · YEAR</em></td><td class="fam">Segoe UI<br>与压印字标同色同工序，成组出现；不透明度 0.70</td><td class="tnum">13</td><td class="tnum">1.03<span>3.65</span></td><td class="num">+2.0</td><td class="num">#8F98C1</td><td><div class="smp2"><span style='font-family:&quot;Segoe UI&quot;,sans-serif;font-size:8px;letter-spacing:1.2px;color:#8F98C1'>（2023-）</span><i style="width:15.6px"></i></div></td></tr>
+      <tr><td class="num">8</td><td class="el">徽章环文字 TOKEN<em>MEDALLION RING</em></td><td class="fam">Georgia Bold<br>花环内<b>仅此一行</b>，<b>无中文标签</b>（原「鲸徽」二字已删除）</td><td class="tnum">21</td><td class="tnum">1.67<span>4.72 pt</span></td><td class="num">+5.0</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:Georgia,&quot;Times New Roman&quot;,serif;font-size:10px;font-weight:700;letter-spacing:3px'>TOKEN</span><i style="width:25.2px"></i></div></td></tr>
+      <tr><td class="num">9</td><td class="el">法偿声明 中 / 英<em>LEGAL TENDER CLAUSE</em></td><td class="fam">微软雅黑 / Georgia</td><td class="tnum">21 / 16</td><td class="tnum">1.67 ・ 1.27<span>4.72 / 3.60 pt</span></td><td class="num">+2.5 / +1.3</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:&quot;Microsoft YaHei&quot;,sans-serif;font-size:11px;letter-spacing:1.6px'>本券为法定清偿货币 · 凭券即付 · 不得拒收</span><i style="width:25.2px"></i></div></td></tr>
+      <tr><td class="num">10</td><td class="el">冠字号「WY 100000000 8842A」<em>SERIAL NUMBER</em></td><td class="fam">Consolas Bold<br>等宽；面额码九位完整数字串</td><td class="tnum">30</td><td class="tnum">2.38<span>6.75</span></td><td class="num">+4.0</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:Consolas,monospace;font-size:13px;font-weight:700;letter-spacing:1.5px'>WY 100000000 8842A</span><i style="width:36.0px"></i></div></td></tr>
+      <tr><td class="num">11</td><td class="el">背面承诺兑付声明<em>REDEMPTION CLAUSE</em></td><td class="fam">微软雅黑<br><b>签名与人物名层级已于本版删除</b>（原「鲸见 灯」／「发行总长」不再使用）</td><td class="tnum">15</td><td class="tnum">1.19<span>3.37 pt</span></td><td class="num">+1.6</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:&quot;Microsoft YaHei&quot;,sans-serif;font-size:11px;letter-spacing:1.6px;opacity:.72'>DeepSeek Token银行承诺兑付等值本位资产</span><i style="width:18.0px"></i></div></td></tr>
+      <tr><td class="num">12</td><td class="el">右区竖排重复面额<em>REPEATED DENOMINATION</em></td><td class="fam">Georgia Bold<br>四级递降，不透明度 1 / .70 / .52 / .36 同步递减</td><td class="tnum">72 / 60 / 50 / 42</td><td class="tnum">5.71 ・ 4.76 ・ 3.97 ・ 3.33<span>16.20 / 13.50 / 11.25 / 9.45</span></td><td class="num">—</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:Georgia,&quot;Times New Roman&quot;,serif;font-size:15px;font-weight:700'>100,000,000</span><i style="width:86.4px"></i></div></td></tr>
+      <tr><td class="num">13</td><td class="el">右区中文大写<em>ZONE INSCRIPTION</em></td><td class="fam">微软雅黑 Bold</td><td class="tnum">34</td><td class="tnum">2.70<span>7.65</span></td><td class="num">+3.0</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:&quot;Microsoft YaHei&quot;,sans-serif;font-size:16px;font-weight:700;letter-spacing:2px'>壹億 TOKEN</span><i style="width:40.8px"></i></div></td></tr>
+      <tr><td class="num">14</td><td class="el">右区符号行<em>SYMBOL LINE</em></td><td class="fam">Georgia<br>₮ 须置于含该字形的字体首位</td><td class="tnum">18</td><td class="tnum">1.43<span>4.05</span></td><td class="num">+2.4</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:Georgia,&quot;Times New Roman&quot;,serif;font-size:14px;letter-spacing:2px'>₮100,000,000 · WYT</span><i style="width:21.6px"></i></div></td></tr>
+      <tr><td class="num">15</td><td class="el">微缩文字带 ★ 全票最小<em>MICROTEXT</em></td><td class="fam">Georgia<br>连字不调距，符号不缩排</td><td class="tnum">8</td><td class="tnum">0.63<span>1.80</span></td><td class="num">+0.3</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:Georgia,&quot;Times New Roman&quot;,serif;font-size:11px;letter-spacing:.6px'>DEEPSEEKTOKENBANK</span><i style="width:9.6px"></i></div></td></tr>
+      <tr class="band"><td colspan="8">背面 · REVERSE　（build/render_reverse.py，1890 × 882 px ＝ 150 × 70 mm）</td></tr>
+      <tr><td class="num">16</td><td class="el">主景面额数字<em>HERO DENOMINATION</em></td><td class="fam">Georgia Bold<br>识别优先</td><td class="tnum">86</td><td class="tnum">6.83<span>19.35</span></td><td class="num">—</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:Georgia,&quot;Times New Roman&quot;,serif;font-size:26px;font-weight:700'>100,000,000</span><i style="width:103.2px"></i></div></td></tr>
+      <tr><td class="num">17</td><td class="el">面额英文 / 中文<em>DENOMINATION</em></td><td class="fam">Georgia Bold / 微软雅黑 Bold</td><td class="tnum">26 / 40</td><td class="tnum">2.06 ・ 3.17<span>5.85 / 9.00 pt</span></td><td class="num">+6.0 / +6.0</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:Georgia,&quot;Times New Roman&quot;,serif;font-size:12px;font-weight:700;letter-spacing:2px'>ONE HUNDRED MILLION</span><i style="width:48.0px"></i></div></td></tr>
+      <tr><td class="num">18</td><td class="el">单位行「单位 TOKEN（词元）· 符号 ₮」<em>UNIT LINE</em></td><td class="fam">微软雅黑</td><td class="tnum">20</td><td class="tnum">1.59<span>4.50</span></td><td class="num">+1.6</td><td class="num">#3F6CC4</td><td><div class="smp2"><span style='font-family:&quot;Microsoft YaHei&quot;,sans-serif;font-size:12px;letter-spacing:1.2px'>单位 TOKEN（词元）· 符号 ₮</span><i style="width:24.0px"></i></div></td></tr>
+      <tr><td class="num">19</td><td class="el">机构中文名 / 英文名<em>INSTITUTION</em></td><td class="fam">微软雅黑 Bold / Georgia 600</td><td class="tnum">34 / 19</td><td class="tnum">2.70 ・ 1.51<span>7.65 / 4.27 pt</span></td><td class="num">+7.0 / +3.4</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:&quot;Microsoft YaHei&quot;,sans-serif;font-size:17px;font-weight:700;letter-spacing:4px'>DeepSeek Token银行</span><i style="width:40.8px"></i></div></td></tr>
+      <tr><td class="num">20</td><td class="el">法偿声明 中 / 英<em>LEGAL TENDER CLAUSE</em></td><td class="fam">微软雅黑 / Georgia</td><td class="tnum">21 / 15</td><td class="tnum">1.67 ・ 1.19<span>4.72 / 3.37 pt</span></td><td class="num">+2.0 / +1.1</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:&quot;Microsoft YaHei&quot;,sans-serif;font-size:11px;letter-spacing:1.4px'>本券为法定清偿货币 · 凭券即付</span><i style="width:25.2px"></i></div></td></tr>
+      <tr><td class="num">21</td><td class="el">潜像区面额数字 / 标注<em>LATENT IMAGE</em></td><td class="fam">Georgia Bold / 微软雅黑</td><td class="tnum">52 / 15</td><td class="tnum">4.13 ・ 1.19<span>11.70 / 3.37 pt</span></td><td class="num">+2.0 / +3.0</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:Georgia,&quot;Times New Roman&quot;,serif;font-size:15px;font-weight:700'>100,000,000</span><i style="width:62.4px"></i></div></td></tr>
+      <tr><td class="num">22</td><td class="el">徽章环「WY」/ 光变元素标注<em>MEDALLION · OVI LABEL</em></td><td class="fam">Georgia Bold / 微软雅黑</td><td class="tnum">22 / 13</td><td class="tnum">1.75 ・ 1.03<span>4.95 / 2.92 pt</span></td><td class="num">—</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:Georgia,&quot;Times New Roman&quot;,serif;font-size:14px;font-weight:700'>WY</span><i style="width:26.4px"></i></div></td></tr>
+      <tr><td class="num">23</td><td class="el">盲文标注「盲文：100000000」<em>BRAILLE NOTE</em></td><td class="fam">微软雅黑<br>主币用九位完整数字串</td><td class="tnum">16</td><td class="tnum">1.27<span>3.60</span></td><td class="num">—</td><td class="num">#3F6CC4</td><td><div class="smp2"><span style='font-family:&quot;Microsoft YaHei&quot;,sans-serif;font-size:11px;letter-spacing:1px'>盲文：100000000</span><i style="width:19.2px"></i></div></td></tr>
+      <tr><td class="num">24</td><td class="el">冠字号（左下 / 中下）· 落款行<em>SERIAL / COLOPHON</em></td><td class="fam">Consolas Bold / 微软雅黑</td><td class="tnum">30 / 28 / 15</td><td class="tnum">2.38 ・ 2.22 ・ 1.19<span>6.75 / 6.30 / 3.37 pt</span></td><td class="num">+4.0 / +4.0 / +1.4</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:Consolas,monospace;font-size:11px;font-weight:700;letter-spacing:1.2px'>WY 100000000 8842A</span><i style="width:36.0px"></i></div></td></tr>
+      <tr><td class="num">25</td><td class="el">微缩文字带 ★ 全票最小<em>MICROTEXT</em></td><td class="fam">Georgia<br>背面微缩带</td><td class="tnum">7.5</td><td class="tnum">0.60<span>1.69</span></td><td class="num">+0.3</td><td class="num">#1B2657</td><td><div class="smp2"><span style='font-family:Georgia,&quot;Times New Roman&quot;,serif;font-size:11px;letter-spacing:.6px'>DEEPSEEKTOKENBANK</span><i style="width:9.0px"></i></div></td></tr>
+    </tbody></table>
+  <div class="warnbar">
+    <b>制版红线：</b>面额数字与机构中文名的字高比实测为 <b>100 : 36 ≈ 2.78 : 1</b>（正面）与 <b>86 : 34 ≈ 2.5 : 1</b>（背面）——
+    层级差由字号、字重、用色三者叠加实现，规范书 4.1 未设字高比下限。<b>硬性下限在对比度：</b>面额数字与其直接背景的对比度不得低于
+    <b>4.5 : 1</b>（WCAG 2.1 AA，规范书 6.4.1）—— 藏青 #1B2657 在纸色 #F5EFDE 上实测 <b>12.5 : 1</b> 达标，
+    深金 #B08A3E 仅 <b>2.8 : 1</b>，不得单独承载关键信息。微缩文字字高低于 <b>0.20 mm</b> 时凹版无法稳定转印、会整片糊死
+    （示意稿 8 px ＝ 0.63 mm，远高于下限）；法偿声明不得小于 <b>1.60 mm</b>。
+  </div>
+</section>
+<style>
+.units{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.unit{border:1px solid rgba(27,38,87,.24);background:#FFFDF6;overflow:hidden;display:flex;flex-direction:column}
+.unit svg{display:block;width:100%;height:auto;background:#FEFBEF;border-bottom:1px solid rgba(27,38,87,.16)}
+.unit-b{padding:9px 11px 11px;flex:1}
+.unit-n{font-family:"Noto Serif SC",SimSun,serif;font-size:13.5px;font-weight:700;color:#1B2657;line-height:1.3}
+.unit-n b{color:#B08A3E;font-family:Consolas,monospace;font-size:11px;margin-right:4px}
+.unit-n span{display:block;font-family:"Times New Roman",serif;font-size:9.5px;letter-spacing:.14em;color:#6C7AA8;font-weight:400;margin-top:2px}
+.unit-u{font-size:11px;color:#23283C;margin-top:6px;line-height:1.5}
+.unit-u b{color:#3F6CC4;font-weight:600}
+.unit-p{font-family:Consolas,monospace;font-size:9.5px;color:#7885AE;margin-top:6px;line-height:1.5;border-top:1px dotted rgba(27,38,87,.25);padding-top:5px}
+</style>
+
+<section class="sec">
+  <div class="sh"><span class="sh-n">04</span><h2>纹饰母题库 · ORNAMENT MOTIF LIBRARY</h2><span class="sh-en">8 REUSABLE UNITS</span></div>
+  <div class="rule"></div>
+  <div class="note">
+    八个母题可覆盖整券全部装饰需求：<b>底纹</b>用 03 / 08，<b>边框与花边</b>用 01 / 04，<b>对印辅纹</b>用 02 / 07（<b>四角角标</b>已停用 2026-10-05），<b>工艺区</b>用 05，
+    <b>主景框架</b>用 06。所有母题必须以 <b>0.09 mm 为最小线宽</b>重绘，线宽低于 0.09 mm 的细线在凹版上会断墨；母题之间不得互相叠印，只能并置。
+  </div>
+  <div class="units">
+
+    <div class="unit">
+      <svg viewBox="0 0 316 150" xmlns="http://www.w3.org/2000/svg">
+        <defs><g id="u1w" fill="none" stroke="#1B2657" stroke-width="2.6" stroke-linecap="round">
+          <path d="M0 44 C 12 12 32 2 48 14 C 60 23 58 41 47 44 C 37 47 31 37 38 30"/>
+        </g></defs>
+        <g>
+          <use href="#u1w" transform="translate(6,14)"/><use href="#u1w" transform="translate(86,14)"/>
+          <use href="#u1w" transform="translate(166,14)"/><use href="#u1w" transform="translate(246,14)"/>
+          <use href="#u1w" transform="translate(-34,84)"/><use href="#u1w" transform="translate(46,84)"/>
+          <use href="#u1w" transform="translate(126,84)"/><use href="#u1w" transform="translate(206,84)"/>
+          <use href="#u1w" transform="translate(286,84)"/>
+        </g>
+        <g fill="#D8BC72">
+          <circle cx="30" cy="22" r="3"/><circle cx="110" cy="22" r="3"/><circle cx="190" cy="22" r="3"/><circle cx="270" cy="22" r="3"/>
+          <circle cx="70" cy="92" r="3"/><circle cx="150" cy="92" r="3"/><circle cx="230" cy="92" r="3"/><circle cx="310" cy="92" r="3"/>
+        </g>
+      </svg>
+      <div class="unit-b">
+        <div class="unit-n"><b>01</b>浪纹<span>WAVE-COIL</span></div>
+        <div class="unit-use"><b>主景背景</b>、上下花边、面额区衬底</div>
+        <div class="unit-p">周期 4.20 mm ｜ 线宽 0.18 mm ｜ 折角 R0.30 mm</div>
+      </div>
+    </div>
+
+    <div class="unit">
+      <svg viewBox="0 0 316 150" xmlns="http://www.w3.org/2000/svg">
+        <defs><g id="u2f"><path d="M0 20 L64 0 C50 26 38 40 26 48 C38 56 50 70 64 96 L0 76 Z"/></g></defs>
+        <g fill="#1B2657">
+          <use href="#u2f" transform="translate(126,24)"/>
+          <use href="#u2f" transform="translate(46,48) scale(0.5)"/>
+          <use href="#u2f" transform="translate(196,48) scale(0.5)"/>
+          <use href="#u2f" transform="translate(16,40) scale(0.34)"/>
+          <use href="#u2f" transform="translate(244,40) scale(0.34)"/>
+        </g>
+        <g fill="#B08A3E">
+          <circle cx="86" cy="22" r="4"/><circle cx="232" cy="18" r="4"/>
+          <circle cx="62" cy="120" r="3"/><circle cx="248" cy="126" r="3"/><circle cx="158" cy="14" r="3"/>
+        </g>
+      </svg>
+      <div class="unit-b">
+        <div class="unit-n"><b>02</b>鲸尾纹<span>FLUKE</span></div>
+        <div class="unit-use"><b>四角角标</b>（已停用 2026-10-05：票面改锐利直角后由内框直角承担转折，且左下角须让位给对印标记）、对印辅纹、面额数字下方托饰</div>
+        <div class="unit-p">单体 5.10 × 7.60 mm ｜ 线宽 0.22 mm ｜ 可 8 向旋转</div>
+      </div>
+    </div>
+
+    <div class="unit">
+      <svg viewBox="0 0 316 150" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="#3F6CC4" stroke-width="1.1" opacity="0.9">
+          <circle cx="30" cy="75" r="10"/><circle cx="30" cy="75" r="20"/><circle cx="30" cy="75" r="30"/>
+          <circle cx="30" cy="75" r="40"/><circle cx="30" cy="75" r="50"/><circle cx="30" cy="75" r="60"/>
+          <circle cx="30" cy="75" r="70"/><circle cx="30" cy="75" r="80"/><circle cx="30" cy="75" r="90"/>
+          <circle cx="30" cy="75" r="100"/><circle cx="30" cy="75" r="110"/><circle cx="30" cy="75" r="120"/>
+          <circle cx="30" cy="75" r="130"/><circle cx="30" cy="75" r="140"/><circle cx="30" cy="75" r="150"/>
+          <circle cx="286" cy="75" r="10"/><circle cx="286" cy="75" r="20"/><circle cx="286" cy="75" r="30"/>
+          <circle cx="286" cy="75" r="40"/><circle cx="286" cy="75" r="50"/><circle cx="286" cy="75" r="60"/>
+          <circle cx="286" cy="75" r="70"/><circle cx="286" cy="75" r="80"/><circle cx="286" cy="75" r="90"/>
+          <circle cx="286" cy="75" r="100"/><circle cx="286" cy="75" r="110"/><circle cx="286" cy="75" r="120"/>
+          <circle cx="286" cy="75" r="130"/><circle cx="286" cy="75" r="140"/><circle cx="286" cy="75" r="150"/>
+        </g>
+        <g fill="none" stroke="#1B2657" stroke-width="1.5" opacity="0.6">
+          <circle cx="158" cy="75" r="36"/><circle cx="158" cy="75" r="58"/>
+        </g>
+      </svg>
+      <div class="unit-b">
+        <div class="unit-n"><b>03</b>经纬纹<span>GUILLOCHE</span></div>
+        <div class="unit-use"><b>满版防复印底纹</b>、水印窗衬底、安全线背景</div>
+        <div class="unit-p">双心距 20.32 mm ｜ 线宽 0.09 mm ｜ 圈距 0.80 mm</div>
+      </div>
+    </div>
+
+    <div class="unit">
+      <svg viewBox="0 0 316 150" xmlns="http://www.w3.org/2000/svg">
+        <defs><g id="u4m" fill="none" stroke="#1B2657" stroke-width="2.6">
+          <path d="M6 6 H50 V50 H18 V22 H38 V34 H28"/>
+        </g></defs>
+        <g>
+          <use href="#u4m" transform="translate(8,16)"/><use href="#u4m" transform="translate(74,16)"/>
+          <use href="#u4m" transform="translate(140,16)"/><use href="#u4m" transform="translate(206,16)"/>
+          <use href="#u4m" transform="translate(272,16)"/>
+          <use href="#u4m" transform="translate(41,80) scale(-1,1)"/><use href="#u4m" transform="translate(107,80) scale(-1,1)"/>
+          <use href="#u4m" transform="translate(173,80) scale(-1,1)"/><use href="#u4m" transform="translate(239,80) scale(-1,1)"/>
+          <use href="#u4m" transform="translate(305,80) scale(-1,1)"/>
+        </g>
+        <g fill="#B08A3E">
+          <circle cx="38" cy="46" r="2.6"/><circle cx="104" cy="46" r="2.6"/><circle cx="170" cy="46" r="2.6"/>
+          <circle cx="236" cy="46" r="2.6"/><circle cx="302" cy="46" r="2.6"/>
+          <circle cx="11" cy="110" r="2.6"/><circle cx="77" cy="110" r="2.6"/><circle cx="143" cy="110" r="2.6"/>
+          <circle cx="209" cy="110" r="2.6"/><circle cx="275" cy="110" r="2.6"/>
+        </g>
+      </svg>
+      <div class="unit-b">
+        <div class="unit-n"><b>04</b>云雷纹变体<span>MEANDER-LEI</span></div>
+        <div class="unit-use"><b>外框花边</b>、版心四边、警示语围框</div>
+        <div class="unit-p">单元 4.44 × 4.44 mm ｜ 线宽 0.20 mm ｜ 隔行镜像</div>
+      </div>
+    </div>
+
+    <div class="unit">
+      <svg viewBox="0 0 316 150" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="u5c" width="18" height="18" patternUnits="userSpaceOnUse">
+            <path d="M2 3 L9 9 L2 15" fill="none" stroke="#F5EFDE" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </pattern>
+          <marker id="u5a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#5A6688"/>
+          </marker>
+        </defs>
+        <rect x="0" y="34" width="316" height="82" fill="#EFE6CC" stroke="#8C99B8" stroke-width="1.4"/>
+        <g fill="#B08A3E">
+          <rect x="50.4" y="34" width="50.4" height="82"/>
+          <rect x="176.4" y="34" width="50.4" height="82"/>
+          <rect x="302.4" y="34" width="13.6" height="82"/>
+        </g>
+        <g fill="url(#u5c)">
+          <rect x="50.4" y="34" width="50.4" height="82"/>
+          <rect x="176.4" y="34" width="50.4" height="82"/>
+          <rect x="302.4" y="34" width="13.6" height="82"/>
+        </g>
+        <g stroke="#F5EFDE" stroke-width="1.6">
+          <path d="M50.4 34 V116 M100.8 34 V116 M176.4 34 V116 M226.8 34 V116 M302.4 34 V116"/>
+        </g>
+        <path d="M50.4 128 H100.8" stroke="#5A6688" stroke-width="1.6" marker-start="url(#u5a)" marker-end="url(#u5a)"/>
+        <path d="M226.8 128 H302.4" stroke="#5A6688" stroke-width="1.6" marker-start="url(#u5a)" marker-end="url(#u5a)"/>
+        <g font-family="Noto Sans SC,Microsoft YaHei,sans-serif">
+          <text x="75.6" y="24" font-size="16" text-anchor="middle" fill="#B08A3E" font-weight="700">开窗 4.0 mm</text>
+          <text x="264.6" y="24" font-size="16" text-anchor="middle" fill="#5A6688">闭窗 6.0 mm</text>
+          <text x="158" y="146" font-size="11.5" text-anchor="middle" fill="#41507E">周期 10.0 mm = 126 px·开窗段露出金属层，闭窗段埋入纸基</text>
+        </g>
+      </svg>
+      <div class="unit-b">
+        <div class="unit-n"><b>05</b>开窗线纹<span>WINDOW-THREAD</span></div>
+        <div class="unit-use"><b>安全线工艺模板</b>、机读段定位、微缩文字载体</div>
+        <div class="unit-p">线宽 1.5 mm ｜ 开窗段长 4.0 mm ｜ Y 4.0 ~ 66.0 mm 贯通</div>
+      </div>
+    </div>
+
+    <div class="unit">
+      <svg viewBox="0 0 316 150" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="#1B2657" stroke-width="2.6" stroke-linecap="round">
+          <path d="M158 138 C 112 138 84 112 84 82 C 84 54 110 40 132 52 C 148 61 146 84 130 86 C 118 87 113 74 122 68"/>
+          <path d="M158 138 C 204 138 232 112 232 82 C 232 54 206 40 184 52 C 168 61 170 84 186 86 C 198 87 203 74 194 68"/>
+        </g>
+        <g fill="#3F6CC4" opacity="0.40">
+          <ellipse cx="66" cy="54" rx="21" ry="8" transform="rotate(-28 66 54)"/>
+          <ellipse cx="250" cy="54" rx="21" ry="8" transform="rotate(28 250 54)"/>
+          <ellipse cx="116" cy="28" rx="17" ry="7" transform="rotate(-8 116 28)"/>
+          <ellipse cx="200" cy="28" rx="17" ry="7" transform="rotate(8 200 28)"/>
+          <ellipse cx="128" cy="118" rx="15" ry="6" transform="rotate(24 128 118)"/>
+          <ellipse cx="188" cy="118" rx="15" ry="6" transform="rotate(-24 188 118)"/>
+        </g>
+        <g fill="#B08A3E">
+          <circle cx="158" cy="126" r="6.5"/>
+          <circle cx="86" cy="88" r="4"/><circle cx="230" cy="88" r="4"/>
+          <circle cx="158" cy="8" r="3.4"/><circle cx="104" cy="16" r="2.6"/><circle cx="212" cy="16" r="2.6"/>
+        </g>
+      </svg>
+      <div class="unit-b">
+        <div class="unit-n"><b>06</b>藤蔓卷草纹<span>VINE-SCROLL</span></div>
+        <div class="unit-use"><b>主景框架</b>、徽志托架、上下对称花饰</div>
+        <div class="unit-p">单体 12.00 × 11.00 mm ｜ 线宽 0.25 mm ｜ 左右可镜像</div>
+      </div>
+    </div>
+
+    <div class="unit">
+      <svg viewBox="0 0 316 150" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="#1B2657" stroke-width="2.4">
+          <circle cx="158" cy="75" r="62"/><circle cx="158" cy="75" r="44"/><circle cx="158" cy="75" r="26"/>
+        </g>
+        <circle cx="158" cy="75" r="52" fill="none" stroke="#D8BC72" stroke-width="2" stroke-dasharray="6 6"/>
+        <g fill="#B08A3E">
+          <g transform="rotate(0 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(15 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(30 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(45 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(60 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(75 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(90 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(105 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(120 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(135 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(150 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(165 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(180 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(195 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(210 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(225 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(240 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(255 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(270 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(285 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(300 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(315 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(330 158 75)"><circle cx="158" cy="13" r="5"/></g>
+          <g transform="rotate(345 158 75)"><circle cx="158" cy="13" r="5"/></g>
+        </g>
+        <g fill="none" stroke="#3F6CC4" stroke-width="1.4">
+          <circle cx="158" cy="75" r="18"/><circle cx="158" cy="75" r="12"/><circle cx="158" cy="75" r="6"/>
+        </g>
+      </svg>
+      <div class="unit-b">
+        <div class="unit-n"><b>07</b>珠圈纹<span>BEAD-RING</span></div>
+        <div class="unit-use"><b>徽志外环</b>、面额数字圈、印章边框</div>
+        <div class="unit-p">珠径 0.40 mm ｜ 圈 Ø 4.92 / 3.49 / 2.06 mm ｜ 24 珠均布</div>
+      </div>
+    </div>
+
+    <div class="unit">
+      <svg viewBox="0 0 316 150" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="u8t" width="56" height="16" patternUnits="userSpaceOnUse">
+            <path d="M0 8 Q14 1 28 8 T56 8" fill="none" stroke="#3F6CC4" stroke-width="1.6" opacity="0.75"/>
+          </pattern>
+        </defs>
+        <rect x="6" y="8" width="304" height="134" fill="url(#u8t)"/>
+        <g fill="none" stroke="#1B2657" stroke-width="2.8" stroke-linecap="round">
+          <path d="M-8 40 Q6 33 20 40 T48 40 T76 40 T104 40 T132 40 T160 40 T188 40 T216 40 T244 40 T272 40 T300 40 T328 40"/>
+          <path d="M-8 104 Q6 97 20 104 T48 104 T76 104 T104 104 T132 104 T160 104 T188 104 T216 104 T244 104 T272 104 T300 104 T328 104"/>
+        </g>
+        <g fill="#B08A3E" opacity="0.9">
+          <circle cx="70" cy="72" r="3"/><circle cx="182" cy="72" r="3"/><circle cx="294" cy="72" r="3"/>
+        </g>
+      </svg>
+      <div class="unit-b">
+        <div class="unit-n"><b>08</b>潮汐波纹<span>TIDELINE</span></div>
+        <div class="unit-use"><b>满版底纹</b>、凹印向胶印的过渡带、防复印衬底</div>
+        <div class="unit-p">周期 4.44 × 1.27 mm ｜ 细线 0.09 / 粗线 0.22 mm</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<style>
+.logosvg{display:block;background:#FFFDF6;border:1px solid rgba(27,38,87,.28);margin:4px 0 12px}
+.minsvg{display:block;background:#FFFDF6;border:1px solid rgba(27,38,87,.28);margin:12px 0 12px}
+.den8{display:grid;grid-template-columns:repeat(8,1fr);gap:6px}
+.den{border:1px solid rgba(27,38,87,.22);background:#FFFDF6;overflow:hidden}
+.den-chip{height:114px;display:flex;align-items:center;justify-content:center}
+.den-chip b{font-family:"Noto Serif SC",SimSun,serif;font-size:29px;font-weight:900;letter-spacing:.01em;line-height:1}
+.den-hex{font-family:Consolas,monospace;font-size:11px;font-weight:700;text-align:center;padding:6px 0 2px;color:#1B2657}
+.den-nm{font-size:11px;text-align:center;color:#23283C;padding-bottom:5px}
+.den-mt{font-family:Consolas,monospace;font-size:9.5px;color:#7885AE;text-align:center;padding:5px 4px 8px;
+  border-top:1px dotted rgba(27,38,87,.25);line-height:1.55}
+.axis{display:flex;align-items:center;gap:12px;margin:2px 0 10px}
+.axis-t{font-family:Consolas,monospace;font-size:10.5px;letter-spacing:.1em;color:#41507E;white-space:nowrap}
+.axis-b{flex:1;display:flex;height:14px;border:1px solid rgba(27,38,87,.3)}
+.axis-b i{flex:1}
+.axis-b i:not(:last-child){border-right:1px solid rgba(245,239,222,.75)}
+.subhd{font-size:11.5px;font-weight:700;letter-spacing:.08em;color:#1B2657;margin:16px 0 8px;
+  border-left:4px solid #B08A3E;padding-left:9px}
+.foot{margin-top:46px;background:#1B2657;color:#F5EFDE;padding:26px 44px 30px;border-top:7px solid #B08A3E}
+.foot-t{font-family:"Noto Serif SC",SimSun,serif;font-size:17px;font-weight:700;letter-spacing:.06em}
+.foot-t span{font-family:"Times New Roman",serif;font-size:10.5px;letter-spacing:.24em;color:#D8BC72;font-weight:400;margin-left:12px}
+.foot-c{font-size:11.5px;color:#CBD5EC;margin-top:11px;line-height:1.75}
+.foot-c b{color:#D8BC72;font-weight:600}
+.foot-w{font-size:11px;color:#E7C9A0;margin-top:13px;padding-top:11px;border-top:1px solid rgba(245,239,222,.22);line-height:1.7}
+.foot-w b{color:#A63A32;background:#F5EFDE;padding:1px 5px;border-radius:2px}
+</style>
+
+<style>
+.g05t{font-family:Consolas,monospace}
+</style>
+<section class="sec">
+  <div class="sh"><span class="sh-n">05</span><h2>徽志规范 · EMBLEM SPECIFICATION</h2><span class="sh-en">OFFICIAL DEEPSEEK WHALE VECTOR / TRADEMARK NOTICE</span></div>
+  <div class="rule"></div>
+  <div class="note">
+    主题徽志「<b>鲸徽</b>」＝ <b>DeepSeek 官方鲸鱼矢量原样引用</b>（viewBox 0 0 24 24，单条 path，<code>fill-rule="evenodd"</code>，负形眼即由该规则成立）。以实心面块构成，<b>不使用描边、不使用渐变、不使用立体光影</b>，任何缩放都必须按官方包围盒比例 <b>24.0005 : 20.6602（1.1617 : 1）</b>等比进行。
+    <br><b>零改动</b>：原样使用官方 DeepSeek 标识矢量，<b>不添加、不修改、不覆盖任何笔触</b>；眼部<b>保留官方原有负形细节</b>，本项目<b>不覆盖、不重绘</b>。权属与风险见本节末「版权与商标警示」。
+  </div>
+  <svg class="logosvg" viewBox="0 0 1312 250" width="1312" height="250" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="0" width="316" height="250" fill="#F5EFDE" stroke="#8C99B8" stroke-width="1.2"/>
+    <rect x="0" y="0" width="316" height="30" fill="#1B2657"/>
+    <text x="12" y="20" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" font-size="12.5" font-weight="700" fill="#F5EFDE">A 正稿 PRIMARY（藏青 / 纸色）</text>
+    <rect x="330" y="0" width="316" height="250" fill="#1B2657" stroke="#8C99B8" stroke-width="1.2"/>
+    <rect x="330" y="0" width="316" height="30" fill="#B08A3E"/>
+    <text x="342" y="20" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" font-size="12.5" font-weight="700" fill="#1B2657">B 反白 KNOCKOUT（纸色 / 藏青）</text>
+    <rect x="660" y="0" width="316" height="250" fill="#F5EFDE" stroke="#8C99B8" stroke-width="1.2"/>
+    <rect x="660" y="0" width="316" height="30" fill="#1B2657"/>
+    <text x="672" y="20" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" font-size="12.5" font-weight="700" fill="#F5EFDE">C 单色金 MONO GOLD（凹印）</text>
+    <rect x="990" y="0" width="316" height="250" fill="#F5EFDE" stroke="#8C99B8" stroke-width="1.2"/>
+    <rect x="990" y="0" width="316" height="30" fill="#1B2657"/>
+    <text x="1002" y="20" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" font-size="12.5" font-weight="700" fill="#F5EFDE">D 留白区 CLEAR SPACE</text>
+    <g transform="translate(58.000 44.416) scale(8.33317)"><path d="M23.748 4.482c-.254-.124-.364.113-.512.234-.051.039-.094.09-.137.136-.372.397-.806.657-1.373.626-.829-.046-1.537.214-2.163.848-.133-.782-.575-1.248-1.247-1.548-.352-.156-.708-.311-.955-.65-.172-.241-.219-.51-.305-.774-.055-.16-.11-.323-.293-.35-.2-.031-.278.136-.356.276-.313.572-.434 1.202-.422 1.84.027 1.436.633 2.58 1.838 3.393.137.093.172.187.129.323-.082.28-.18.552-.266.833-.055.179-.137.217-.329.14a5.526 5.526 0 01-1.736-1.18c-.857-.828-1.631-1.742-2.597-2.458a11.365 11.365 0 00-.689-.471c-.985-.957.13-1.743.388-1.836.27-.098.093-.432-.779-.428-.872.004-1.67.295-2.687.684a3.055 3.055 0 01-.465.137 9.597 9.597 0 00-2.883-.102c-1.885.21-3.39 1.102-4.497 2.623C.082 8.606-.231 10.684.152 12.85c.403 2.284 1.569 4.175 3.36 5.653 1.858 1.533 3.997 2.284 6.438 2.14 1.482-.085 3.133-.284 4.994-1.86.47.234.962.327 1.78.397.63.059 1.236-.03 1.705-.128.735-.156.684-.837.419-.961-2.155-1.004-1.682-.595-2.113-.926 1.096-1.296 2.746-2.642 3.392-7.003.05-.347.007-.565 0-.845-.004-.17.035-.237.23-.256a4.173 4.173 0 001.545-.475c1.396-.763 1.96-2.015 2.093-3.517.02-.23-.004-.467-.247-.588zM11.581 18c-2.089-1.642-3.102-2.183-3.52-2.16-.392.024-.321.471-.235.763.09.288.207.486.371.739.114.167.192.416-.113.603-.673.416-1.842-.14-1.897-.167-1.361-.802-2.5-1.86-3.301-3.307-.774-1.393-1.224-2.887-1.298-4.482-.02-.386.093-.522.477-.592a4.696 4.696 0 011.529-.039c2.132.312 3.946 1.265 5.468 2.774.868.86 1.525 1.887 2.202 2.891.72 1.066 1.494 2.082 2.48 2.914.348.292.625.514.891.677-.802.09-2.14.11-3.054-.614zm1-6.44a.306.306 0 01.415-.287.302.302 0 01.2.288.306.306 0 01-.31.307.303.303 0 01-.304-.308zm3.11 1.596c-.2.081-.399.151-.59.16a1.245 1.245 0 01-.798-.254c-.274-.23-.47-.358-.552-.758a1.73 1.73 0 01.016-.588c.07-.327-.008-.537-.239-.727-.187-.156-.426-.199-.688-.199a.559.559 0 01-.254-.078c-.11-.054-.2-.19-.114-.358.028-.054.16-.186.192-.21.356-.202.767-.136 1.146.016.352.144.618.408 1.001.782.391.451.462.576.685.914.176.265.336.537.445.848.067.195-.019.354-.25.452z" fill="#1B2657" fill-rule="evenodd"/><path d="M 13.2 4.6 C 13.0 3.5 12.3 2.7 11.4 2.3" fill="none" stroke="#1B2657" stroke-width="0.62" stroke-linecap="round"/></g>
+    <text x="158" y="240" font-family="Consolas,monospace" font-size="11" text-anchor="middle" fill="#6C7AA8">官方矢量原样引用 ｜ 零改动</text>
+    <g transform="translate(388.000 44.416) scale(8.33317)"><path d="M23.748 4.482c-.254-.124-.364.113-.512.234-.051.039-.094.09-.137.136-.372.397-.806.657-1.373.626-.829-.046-1.537.214-2.163.848-.133-.782-.575-1.248-1.247-1.548-.352-.156-.708-.311-.955-.65-.172-.241-.219-.51-.305-.774-.055-.16-.11-.323-.293-.35-.2-.031-.278.136-.356.276-.313.572-.434 1.202-.422 1.84.027 1.436.633 2.58 1.838 3.393.137.093.172.187.129.323-.082.28-.18.552-.266.833-.055.179-.137.217-.329.14a5.526 5.526 0 01-1.736-1.18c-.857-.828-1.631-1.742-2.597-2.458a11.365 11.365 0 00-.689-.471c-.985-.957.13-1.743.388-1.836.27-.098.093-.432-.779-.428-.872.004-1.67.295-2.687.684a3.055 3.055 0 01-.465.137 9.597 9.597 0 00-2.883-.102c-1.885.21-3.39 1.102-4.497 2.623C.082 8.606-.231 10.684.152 12.85c.403 2.284 1.569 4.175 3.36 5.653 1.858 1.533 3.997 2.284 6.438 2.14 1.482-.085 3.133-.284 4.994-1.86.47.234.962.327 1.78.397.63.059 1.236-.03 1.705-.128.735-.156.684-.837.419-.961-2.155-1.004-1.682-.595-2.113-.926 1.096-1.296 2.746-2.642 3.392-7.003.05-.347.007-.565 0-.845-.004-.17.035-.237.23-.256a4.173 4.173 0 001.545-.475c1.396-.763 1.96-2.015 2.093-3.517.02-.23-.004-.467-.247-.588zM11.581 18c-2.089-1.642-3.102-2.183-3.52-2.16-.392.024-.321.471-.235.763.09.288.207.486.371.739.114.167.192.416-.113.603-.673.416-1.842-.14-1.897-.167-1.361-.802-2.5-1.86-3.301-3.307-.774-1.393-1.224-2.887-1.298-4.482-.02-.386.093-.522.477-.592a4.696 4.696 0 011.529-.039c2.132.312 3.946 1.265 5.468 2.774.868.86 1.525 1.887 2.202 2.891.72 1.066 1.494 2.082 2.48 2.914.348.292.625.514.891.677-.802.09-2.14.11-3.054-.614zm1-6.44a.306.306 0 01.415-.287.302.302 0 01.2.288.306.306 0 01-.31.307.303.303 0 01-.304-.308zm3.11 1.596c-.2.081-.399.151-.59.16a1.245 1.245 0 01-.798-.254c-.274-.23-.47-.358-.552-.758a1.73 1.73 0 01.016-.588c.07-.327-.008-.537-.239-.727-.187-.156-.426-.199-.688-.199a.559.559 0 01-.254-.078c-.11-.054-.2-.19-.114-.358.028-.054.16-.186.192-.21.356-.202.767-.136 1.146.016.352.144.618.408 1.001.782.391.451.462.576.685.914.176.265.336.537.445.848.067.195-.019.354-.25.452z" fill="#F5EFDE" fill-rule="evenodd"/><path d="M 13.2 4.6 C 13.0 3.5 12.3 2.7 11.4 2.3" fill="none" stroke="#F5EFDE" stroke-width="0.62" stroke-linecap="round"/></g>
+    <text x="488" y="240" font-family="Consolas,monospace" font-size="11" text-anchor="middle" fill="#9FB2DE">仅用于深色底，禁止加描边</text>
+    <g transform="translate(718.000 44.416) scale(8.33317)"><path d="M23.748 4.482c-.254-.124-.364.113-.512.234-.051.039-.094.09-.137.136-.372.397-.806.657-1.373.626-.829-.046-1.537.214-2.163.848-.133-.782-.575-1.248-1.247-1.548-.352-.156-.708-.311-.955-.65-.172-.241-.219-.51-.305-.774-.055-.16-.11-.323-.293-.35-.2-.031-.278.136-.356.276-.313.572-.434 1.202-.422 1.84.027 1.436.633 2.58 1.838 3.393.137.093.172.187.129.323-.082.28-.18.552-.266.833-.055.179-.137.217-.329.14a5.526 5.526 0 01-1.736-1.18c-.857-.828-1.631-1.742-2.597-2.458a11.365 11.365 0 00-.689-.471c-.985-.957.13-1.743.388-1.836.27-.098.093-.432-.779-.428-.872.004-1.67.295-2.687.684a3.055 3.055 0 01-.465.137 9.597 9.597 0 00-2.883-.102c-1.885.21-3.39 1.102-4.497 2.623C.082 8.606-.231 10.684.152 12.85c.403 2.284 1.569 4.175 3.36 5.653 1.858 1.533 3.997 2.284 6.438 2.14 1.482-.085 3.133-.284 4.994-1.86.47.234.962.327 1.78.397.63.059 1.236-.03 1.705-.128.735-.156.684-.837.419-.961-2.155-1.004-1.682-.595-2.113-.926 1.096-1.296 2.746-2.642 3.392-7.003.05-.347.007-.565 0-.845-.004-.17.035-.237.23-.256a4.173 4.173 0 001.545-.475c1.396-.763 1.96-2.015 2.093-3.517.02-.23-.004-.467-.247-.588zM11.581 18c-2.089-1.642-3.102-2.183-3.52-2.16-.392.024-.321.471-.235.763.09.288.207.486.371.739.114.167.192.416-.113.603-.673.416-1.842-.14-1.897-.167-1.361-.802-2.5-1.86-3.301-3.307-.774-1.393-1.224-2.887-1.298-4.482-.02-.386.093-.522.477-.592a4.696 4.696 0 011.529-.039c2.132.312 3.946 1.265 5.468 2.774.868.86 1.525 1.887 2.202 2.891.72 1.066 1.494 2.082 2.48 2.914.348.292.625.514.891.677-.802.09-2.14.11-3.054-.614zm1-6.44a.306.306 0 01.415-.287.302.302 0 01.2.288.306.306 0 01-.31.307.303.303 0 01-.304-.308zm3.11 1.596c-.2.081-.399.151-.59.16a1.245 1.245 0 01-.798-.254c-.274-.23-.47-.358-.552-.758a1.73 1.73 0 01.016-.588c.07-.327-.008-.537-.239-.727-.187-.156-.426-.199-.688-.199a.559.559 0 01-.254-.078c-.11-.054-.2-.19-.114-.358.028-.054.16-.186.192-.21.356-.202.767-.136 1.146.016.352.144.618.408 1.001.782.391.451.462.576.685.914.176.265.336.537.445.848.067.195-.019.354-.25.452z" fill="#B08A3E" fill-rule="evenodd"/><path d="M 13.2 4.6 C 13.0 3.5 12.3 2.7 11.4 2.3" fill="none" stroke="#B08A3E" stroke-width="0.62" stroke-linecap="round"/></g>
+    <text x="818" y="240" font-family="Consolas,monospace" font-size="11" text-anchor="middle" fill="#6C7AA8">#B08A3E ｜ 墨层 12–18 μm</text>
+    <rect x="1048.0" y="53.2" width="200.0" height="173.6" fill="none" stroke="#A63A32" stroke-width="1.6" stroke-dasharray="9 6"/>
+    <rect x="1098.0" y="103.2" width="100.0" height="73.6" fill="none" stroke="#3F6CC4" stroke-width="1.2" stroke-dasharray="5 4"/>
+    <g transform="translate(1098.000 90.708) scale(4.16659)"><path d="M23.748 4.482c-.254-.124-.364.113-.512.234-.051.039-.094.09-.137.136-.372.397-.806.657-1.373.626-.829-.046-1.537.214-2.163.848-.133-.782-.575-1.248-1.247-1.548-.352-.156-.708-.311-.955-.65-.172-.241-.219-.51-.305-.774-.055-.16-.11-.323-.293-.35-.2-.031-.278.136-.356.276-.313.572-.434 1.202-.422 1.84.027 1.436.633 2.58 1.838 3.393.137.093.172.187.129.323-.082.28-.18.552-.266.833-.055.179-.137.217-.329.14a5.526 5.526 0 01-1.736-1.18c-.857-.828-1.631-1.742-2.597-2.458a11.365 11.365 0 00-.689-.471c-.985-.957.13-1.743.388-1.836.27-.098.093-.432-.779-.428-.872.004-1.67.295-2.687.684a3.055 3.055 0 01-.465.137 9.597 9.597 0 00-2.883-.102c-1.885.21-3.39 1.102-4.497 2.623C.082 8.606-.231 10.684.152 12.85c.403 2.284 1.569 4.175 3.36 5.653 1.858 1.533 3.997 2.284 6.438 2.14 1.482-.085 3.133-.284 4.994-1.86.47.234.962.327 1.78.397.63.059 1.236-.03 1.705-.128.735-.156.684-.837.419-.961-2.155-1.004-1.682-.595-2.113-.926 1.096-1.296 2.746-2.642 3.392-7.003.05-.347.007-.565 0-.845-.004-.17.035-.237.23-.256a4.173 4.173 0 001.545-.475c1.396-.763 1.96-2.015 2.093-3.517.02-.23-.004-.467-.247-.588zM11.581 18c-2.089-1.642-3.102-2.183-3.52-2.16-.392.024-.321.471-.235.763.09.288.207.486.371.739.114.167.192.416-.113.603-.673.416-1.842-.14-1.897-.167-1.361-.802-2.5-1.86-3.301-3.307-.774-1.393-1.224-2.887-1.298-4.482-.02-.386.093-.522.477-.592a4.696 4.696 0 011.529-.039c2.132.312 3.946 1.265 5.468 2.774.868.86 1.525 1.887 2.202 2.891.72 1.066 1.494 2.082 2.48 2.914.348.292.625.514.891.677-.802.09-2.14.11-3.054-.614zm1-6.44a.306.306 0 01.415-.287.302.302 0 01.2.288.306.306 0 01-.31.307.303.303 0 01-.304-.308zm3.11 1.596c-.2.081-.399.151-.59.16a1.245 1.245 0 01-.798-.254c-.274-.23-.47-.358-.552-.758a1.73 1.73 0 01.016-.588c.07-.327-.008-.537-.239-.727-.187-.156-.426-.199-.688-.199a.559.559 0 01-.254-.078c-.11-.054-.2-.19-.114-.358.028-.054.16-.186.192-.21.356-.202.767-.136 1.146.016.352.144.618.408 1.001.782.391.451.462.576.685.914.176.265.336.537.445.848.067.195-.019.354-.25.452z" fill="#1B2657" fill-rule="evenodd"/><path d="M 13.2 4.6 C 13.0 3.5 12.3 2.7 11.4 2.3" fill="none" stroke="#1B2657" stroke-width="0.62" stroke-linecap="round"/></g>
+    <g font-family="Consolas,monospace" font-size="17" font-weight="700" fill="#A63A32" text-anchor="middle">
+      <text x="1148" y="84">X</text><text x="1148" y="208">X</text>
+      <text x="1073" y="146">X</text><text x="1223" y="146">X</text>
+    </g>
+    <g stroke="#A63A32" stroke-width="1">
+      <path d="M1054 140 H1094 M1202 140 H1242 M1148 59 V99 M1148 181 V221"/>
+    </g>
+    <text x="1148" y="244" font-family="Consolas,monospace" font-size="11" text-anchor="middle" fill="#6C7AA8">长边 : 高 = 24.0005 : 20.6602 = 1.1617 : 1</text>
+  </svg>
+  <table>
+    <thead><tr><th>项目 / ITEM</th><th>规定值</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td class="el">矢量来源<em>VECTOR SOURCE</em></td><td class="num">DeepSeek 官方鲸鱼标识<br>viewBox 0 0 24 24 · 单条 path · evenodd</td><td><b>非本项目原创。</b>已提取为 <code>build/deepseek_whale_d.txt</code>，由 <code>build/whale_mark.py</code> 统一封装；权属与风险见本节末警示</td></tr>
+      <tr><td class="el">标准制图比例<em>PROPORTION</em></td><td class="num">长边 : 高 = 24.0005 : 20.6602<br>= 1.1617 : 1</td><td>官方包围盒实测值（无头 Edge <code>path.getBBox()</code>）；任何缩放必须等比，纵向或横向变形 &gt; 2 % 即判废</td></tr>
+      <tr><td class="el">改动范围<em>MODIFICATION SCOPE</em></td><td class="num">零改动<br>不添加 · 不修改 · 不覆盖任何笔触</td><td><b>原样使用官方 DeepSeek 标识矢量</b>，不做任何笔触级改动；缩放必须按官方包围盒比例等比进行，不得单独加粗或削弱任何局部</td></tr>
+      <tr><td class="el">眼部细节<em>EYE</em></td><td class="num"><b>保留官方原有负形眼部细节<br>禁止覆盖重绘</b></td><td>实测结论：自绘正圆覆盖后在小尺寸下反而更差，官方那枚负形眼已是最优处理，故一律沿用</td></tr>
+      <tr><td class="el">票面主徽<em>PRIMARY MARK</em></td><td class="num">长边 18.00 mm（226.8 px）</td><td>置于 ₮100,000,000 主景右上角；凹印单色金 #B08A3E。该尺寸远高于全细节下限，负形眼等全部细节均可印出</td></tr>
+      <tr><td class="el">票面次徽<em>SECONDARY MARK</em></td><td class="num">长边 9.00 mm（113.4 px）</td><td>水印窗右下、冠字号前缀位；胶印藏青 #1B2657</td></tr>
+      <tr><td class="el">全细节下限<em>FULL DETAIL</em></td><td class="num">长边 ≥ 5.00 mm（63.0 px）</td><td>缩微实测：64 px 档负形眼等全部细节<b>均清晰可辨</b>，故以此为「完整徽志」的印刷下限</td></tr>
+      <tr><td class="el">负形眼临界<em>EYE LIMIT</em></td><td class="num">长边 ≥ 3.50 mm（44.1 px）</td><td>缩微实测：44 px 档负形眼<b>尚可辨</b>；30 px 档眼部糊连不可辨</td></tr>
+      <tr><td class="el">剪影下限<em>SILHOUETTE</em></td><td class="num">长边 ≥ 1.10 mm（13.9 px）</td><td>缩微实测：14 px 档仍能认出鲸形（用户与制图双方目视一致）；10 px 档沦为色块、形体不成立</td></tr>
+      <tr><td class="el">禁止尺寸<em>FORBIDDEN</em></td><td class="num">长边 &lt; 1.10 mm（13.9 px）</td><td>强制改用字标「DeepSeek Token银行」，<b>不得硬缩徽志</b></td></tr>
+      <tr><td class="el">留白区<em>CLEAR SPACE</em></td><td class="num">X = 0.5 H，且 X ≥ 1.00 mm<br>（H = 长边）</td><td>留白区内不得出现任何图文；与旧稿一致，未随图形更换而放宽</td></tr>
+      <tr><td class="el">允许旋转<em>ROTATION</em></td><td class="num"><b>0°（唯一允许）</b></td><td>徽志为<b>第三方商标标识</b>，任何旋转、镜像、倾斜均构成对该标识本身的改动，落入《鲸元券货币规范书》<b>8.1.4</b> 的禁用清单；规范书 <b>4.3.4</b> 已定「不得旋转（仅允许 0°）」。<b>票面主徽、票面次徽、水印窗、对印图案、缩微场景一律 0°</b>，四张渲染稿（<code>build/mockup-100.png</code> / <code>reverse-100.png</code> / <code>series.png</code> / <code>crayon-100.png</code>）中的鲸徽亦全部正置。禁止镜像（会使鲸首反向、与原标识不符）、禁止拉伸。</td></tr>
+      <tr><td class="el">变体<em>VARIANTS</em></td><td class="num">正稿 · 反白 · 单色金</td><td>正稿＝藏青／纸色；反白＝纸色／藏青且<b>禁止加描边</b>；单色金 #B08A3E 用于凹印主徽</td></tr>
+    </tbody>
+  </table>
+  <svg class="minsvg" viewBox="0 0 1312 500" width="1312" height="500" xmlns="http://www.w3.org/2000/svg">
+    <g font-family="Noto Sans SC,Microsoft YaHei,sans-serif" font-size="12" font-weight="700" fill="#1B2657">
+      <text x="8" y="22">1 : 1 实尺（1 mm = 12.6 px，可直接用直尺在屏幕上核对）</text>
+      <text x="8" y="272" fill="#B08A3E">×3.0 矢量结构放大（示意，非印刷模拟）</text>
+    </g>
+    <text x="1304" y="22" text-anchor="end" font-family="Consolas,monospace" font-size="11" fill="#7885AE">阈值依据：build/whale-cal.png 缩微实测（96 / 64 / 44 / 30 / 20 / 14 / 10 px 七档）</text>
+    <g stroke="#5A6688" stroke-width="1.2">
+      <path d="M40.0 224 V236.0"/>
+      <path d="M52.6 224 V231.0"/>
+      <path d="M65.2 224 V231.0"/>
+      <path d="M77.8 224 V231.0"/>
+      <path d="M90.4 224 V231.0"/>
+      <path d="M103.0 224 V236.0"/>
+      <path d="M40 231 H103.0" stroke-width="1.6"/>
+    </g>
+    <text x="40.0" y="248" font-family="Consolas,monospace" font-size="9.5" text-anchor="middle" fill="#7885AE">0</text>
+    <text x="52.6" y="248" font-family="Consolas,monospace" font-size="9.5" text-anchor="middle" fill="#7885AE">1</text>
+    <text x="65.2" y="248" font-family="Consolas,monospace" font-size="9.5" text-anchor="middle" fill="#7885AE">2</text>
+    <text x="77.8" y="248" font-family="Consolas,monospace" font-size="9.5" text-anchor="middle" fill="#7885AE">3</text>
+    <text x="90.4" y="248" font-family="Consolas,monospace" font-size="9.5" text-anchor="middle" fill="#7885AE">4</text>
+    <text x="103.0" y="248" font-family="Consolas,monospace" font-size="9.5" text-anchor="middle" fill="#7885AE">5</text>
+    <text x="109.0" y="248" font-family="Consolas,monospace" font-size="9.5" fill="#7885AE">mm</text>
+    <path d="M0 260 H1312" stroke="#C6CFE2" stroke-width="1" stroke-dasharray="6 5"/>
+    <rect x="132.5" y="163.6" width="63.0" height="46.4" fill="none" stroke="#3F6CC4" stroke-width="1" stroke-dasharray="4 3"/>
+    <g transform="translate(132.500 155.767) scale(2.62495)"><path d="M23.748 4.482c-.254-.124-.364.113-.512.234-.051.039-.094.09-.137.136-.372.397-.806.657-1.373.626-.829-.046-1.537.214-2.163.848-.133-.782-.575-1.248-1.247-1.548-.352-.156-.708-.311-.955-.65-.172-.241-.219-.51-.305-.774-.055-.16-.11-.323-.293-.35-.2-.031-.278.136-.356.276-.313.572-.434 1.202-.422 1.84.027 1.436.633 2.58 1.838 3.393.137.093.172.187.129.323-.082.28-.18.552-.266.833-.055.179-.137.217-.329.14a5.526 5.526 0 01-1.736-1.18c-.857-.828-1.631-1.742-2.597-2.458a11.365 11.365 0 00-.689-.471c-.985-.957.13-1.743.388-1.836.27-.098.093-.432-.779-.428-.872.004-1.67.295-2.687.684a3.055 3.055 0 01-.465.137 9.597 9.597 0 00-2.883-.102c-1.885.21-3.39 1.102-4.497 2.623C.082 8.606-.231 10.684.152 12.85c.403 2.284 1.569 4.175 3.36 5.653 1.858 1.533 3.997 2.284 6.438 2.14 1.482-.085 3.133-.284 4.994-1.86.47.234.962.327 1.78.397.63.059 1.236-.03 1.705-.128.735-.156.684-.837.419-.961-2.155-1.004-1.682-.595-2.113-.926 1.096-1.296 2.746-2.642 3.392-7.003.05-.347.007-.565 0-.845-.004-.17.035-.237.23-.256a4.173 4.173 0 001.545-.475c1.396-.763 1.96-2.015 2.093-3.517.02-.23-.004-.467-.247-.588zM11.581 18c-2.089-1.642-3.102-2.183-3.52-2.16-.392.024-.321.471-.235.763.09.288.207.486.371.739.114.167.192.416-.113.603-.673.416-1.842-.14-1.897-.167-1.361-.802-2.5-1.86-3.301-3.307-.774-1.393-1.224-2.887-1.298-4.482-.02-.386.093-.522.477-.592a4.696 4.696 0 011.529-.039c2.132.312 3.946 1.265 5.468 2.774.868.86 1.525 1.887 2.202 2.891.72 1.066 1.494 2.082 2.48 2.914.348.292.625.514.891.677-.802.09-2.14.11-3.054-.614zm1-6.44a.306.306 0 01.415-.287.302.302 0 01.2.288.306.306 0 01-.31.307.303.303 0 01-.304-.308zm3.11 1.596c-.2.081-.399.151-.59.16a1.245 1.245 0 01-.798-.254c-.274-.23-.47-.358-.552-.758a1.73 1.73 0 01.016-.588c.07-.327-.008-.537-.239-.727-.187-.156-.426-.199-.688-.199a.559.559 0 01-.254-.078c-.11-.054-.2-.19-.114-.358.028-.054.16-.186.192-.21.356-.202.767-.136 1.146.016.352.144.618.408 1.001.782.391.451.462.576.685.914.176.265.336.537.445.848.067.195-.019.354-.25.452z" fill="#1B2657" fill-rule="evenodd"/><path d="M 13.2 4.6 C 13.0 3.5 12.3 2.7 11.4 2.3" fill="none" stroke="#1B2657" stroke-width="0.62" stroke-linecap="round"/></g>
+    <g stroke="#8C99B8" stroke-width="1"><path d="M132.5 220.0 H195.5 M132.5 215.0 V225.0 M195.5 215.0 V225.0"/></g>
+    <text x="164.0" y="118" text-anchor="middle" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="700" fill="#1B2657">① 5.00 mm</text>
+    <text x="164.0" y="136" text-anchor="middle" font-family="Consolas,monospace" font-size="11" fill="#6C7AA8">63.0 px</text>
+    <g transform="translate(69.500 307.302) scale(7.87485)"><path d="M23.748 4.482c-.254-.124-.364.113-.512.234-.051.039-.094.09-.137.136-.372.397-.806.657-1.373.626-.829-.046-1.537.214-2.163.848-.133-.782-.575-1.248-1.247-1.548-.352-.156-.708-.311-.955-.65-.172-.241-.219-.51-.305-.774-.055-.16-.11-.323-.293-.35-.2-.031-.278.136-.356.276-.313.572-.434 1.202-.422 1.84.027 1.436.633 2.58 1.838 3.393.137.093.172.187.129.323-.082.28-.18.552-.266.833-.055.179-.137.217-.329.14a5.526 5.526 0 01-1.736-1.18c-.857-.828-1.631-1.742-2.597-2.458a11.365 11.365 0 00-.689-.471c-.985-.957.13-1.743.388-1.836.27-.098.093-.432-.779-.428-.872.004-1.67.295-2.687.684a3.055 3.055 0 01-.465.137 9.597 9.597 0 00-2.883-.102c-1.885.21-3.39 1.102-4.497 2.623C.082 8.606-.231 10.684.152 12.85c.403 2.284 1.569 4.175 3.36 5.653 1.858 1.533 3.997 2.284 6.438 2.14 1.482-.085 3.133-.284 4.994-1.86.47.234.962.327 1.78.397.63.059 1.236-.03 1.705-.128.735-.156.684-.837.419-.961-2.155-1.004-1.682-.595-2.113-.926 1.096-1.296 2.746-2.642 3.392-7.003.05-.347.007-.565 0-.845-.004-.17.035-.237.23-.256a4.173 4.173 0 001.545-.475c1.396-.763 1.96-2.015 2.093-3.517.02-.23-.004-.467-.247-.588zM11.581 18c-2.089-1.642-3.102-2.183-3.52-2.16-.392.024-.321.471-.235.763.09.288.207.486.371.739.114.167.192.416-.113.603-.673.416-1.842-.14-1.897-.167-1.361-.802-2.5-1.86-3.301-3.307-.774-1.393-1.224-2.887-1.298-4.482-.02-.386.093-.522.477-.592a4.696 4.696 0 011.529-.039c2.132.312 3.946 1.265 5.468 2.774.868.86 1.525 1.887 2.202 2.891.72 1.066 1.494 2.082 2.48 2.914.348.292.625.514.891.677-.802.09-2.14.11-3.054-.614zm1-6.44a.306.306 0 01.415-.287.302.302 0 01.2.288.306.306 0 01-.31.307.303.303 0 01-.304-.308zm3.11 1.596c-.2.081-.399.151-.59.16a1.245 1.245 0 01-.798-.254c-.274-.23-.47-.358-.552-.758a1.73 1.73 0 01.016-.588c.07-.327-.008-.537-.239-.727-.187-.156-.426-.199-.688-.199a.559.559 0 01-.254-.078c-.11-.054-.2-.19-.114-.358.028-.054.16-.186.192-.21.356-.202.767-.136 1.146.016.352.144.618.408 1.001.782.391.451.462.576.685.914.176.265.336.537.445.848.067.195-.019.354-.25.452z" fill="#1B2657" fill-rule="evenodd"/><path d="M 13.2 4.6 C 13.0 3.5 12.3 2.7 11.4 2.3" fill="none" stroke="#1B2657" stroke-width="0.62" stroke-linecap="round"/></g>
+    <text x="164.0" y="490" text-anchor="middle" font-family="Consolas,monospace" font-size="10.5" fill="#7885AE">×3 → 189 px</text>
+    <rect x="469.9" y="177.6" width="44.1" height="32.4" fill="none" stroke="#3F6CC4" stroke-width="1" stroke-dasharray="4 3"/>
+    <g transform="translate(469.950 172.037) scale(1.83746)"><path d="M23.748 4.482c-.254-.124-.364.113-.512.234-.051.039-.094.09-.137.136-.372.397-.806.657-1.373.626-.829-.046-1.537.214-2.163.848-.133-.782-.575-1.248-1.247-1.548-.352-.156-.708-.311-.955-.65-.172-.241-.219-.51-.305-.774-.055-.16-.11-.323-.293-.35-.2-.031-.278.136-.356.276-.313.572-.434 1.202-.422 1.84.027 1.436.633 2.58 1.838 3.393.137.093.172.187.129.323-.082.28-.18.552-.266.833-.055.179-.137.217-.329.14a5.526 5.526 0 01-1.736-1.18c-.857-.828-1.631-1.742-2.597-2.458a11.365 11.365 0 00-.689-.471c-.985-.957.13-1.743.388-1.836.27-.098.093-.432-.779-.428-.872.004-1.67.295-2.687.684a3.055 3.055 0 01-.465.137 9.597 9.597 0 00-2.883-.102c-1.885.21-3.39 1.102-4.497 2.623C.082 8.606-.231 10.684.152 12.85c.403 2.284 1.569 4.175 3.36 5.653 1.858 1.533 3.997 2.284 6.438 2.14 1.482-.085 3.133-.284 4.994-1.86.47.234.962.327 1.78.397.63.059 1.236-.03 1.705-.128.735-.156.684-.837.419-.961-2.155-1.004-1.682-.595-2.113-.926 1.096-1.296 2.746-2.642 3.392-7.003.05-.347.007-.565 0-.845-.004-.17.035-.237.23-.256a4.173 4.173 0 001.545-.475c1.396-.763 1.96-2.015 2.093-3.517.02-.23-.004-.467-.247-.588zM11.581 18c-2.089-1.642-3.102-2.183-3.52-2.16-.392.024-.321.471-.235.763.09.288.207.486.371.739.114.167.192.416-.113.603-.673.416-1.842-.14-1.897-.167-1.361-.802-2.5-1.86-3.301-3.307-.774-1.393-1.224-2.887-1.298-4.482-.02-.386.093-.522.477-.592a4.696 4.696 0 011.529-.039c2.132.312 3.946 1.265 5.468 2.774.868.86 1.525 1.887 2.202 2.891.72 1.066 1.494 2.082 2.48 2.914.348.292.625.514.891.677-.802.09-2.14.11-3.054-.614zm1-6.44a.306.306 0 01.415-.287.302.302 0 01.2.288.306.306 0 01-.31.307.303.303 0 01-.304-.308zm3.11 1.596c-.2.081-.399.151-.59.16a1.245 1.245 0 01-.798-.254c-.274-.23-.47-.358-.552-.758a1.73 1.73 0 01.016-.588c.07-.327-.008-.537-.239-.727-.187-.156-.426-.199-.688-.199a.559.559 0 01-.254-.078c-.11-.054-.2-.19-.114-.358.028-.054.16-.186.192-.21.356-.202.767-.136 1.146.016.352.144.618.408 1.001.782.391.451.462.576.685.914.176.265.336.537.445.848.067.195-.019.354-.25.452z" fill="#1B2657" fill-rule="evenodd"/><path d="M 13.2 4.6 C 13.0 3.5 12.3 2.7 11.4 2.3" fill="none" stroke="#1B2657" stroke-width="0.62" stroke-linecap="round"/></g>
+    <g stroke="#8C99B8" stroke-width="1"><path d="M469.9 220.0 H514.0 M469.9 215.0 V225.0 M514.0 215.0 V225.0"/></g>
+    <text x="492.0" y="118" text-anchor="middle" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="700" fill="#1B2657">② 3.50 mm</text>
+    <text x="492.0" y="136" text-anchor="middle" font-family="Consolas,monospace" font-size="11" fill="#6C7AA8">44.1 px</text>
+    <g transform="translate(425.850 356.112) scale(5.51239)"><path d="M23.748 4.482c-.254-.124-.364.113-.512.234-.051.039-.094.09-.137.136-.372.397-.806.657-1.373.626-.829-.046-1.537.214-2.163.848-.133-.782-.575-1.248-1.247-1.548-.352-.156-.708-.311-.955-.65-.172-.241-.219-.51-.305-.774-.055-.16-.11-.323-.293-.35-.2-.031-.278.136-.356.276-.313.572-.434 1.202-.422 1.84.027 1.436.633 2.58 1.838 3.393.137.093.172.187.129.323-.082.28-.18.552-.266.833-.055.179-.137.217-.329.14a5.526 5.526 0 01-1.736-1.18c-.857-.828-1.631-1.742-2.597-2.458a11.365 11.365 0 00-.689-.471c-.985-.957.13-1.743.388-1.836.27-.098.093-.432-.779-.428-.872.004-1.67.295-2.687.684a3.055 3.055 0 01-.465.137 9.597 9.597 0 00-2.883-.102c-1.885.21-3.39 1.102-4.497 2.623C.082 8.606-.231 10.684.152 12.85c.403 2.284 1.569 4.175 3.36 5.653 1.858 1.533 3.997 2.284 6.438 2.14 1.482-.085 3.133-.284 4.994-1.86.47.234.962.327 1.78.397.63.059 1.236-.03 1.705-.128.735-.156.684-.837.419-.961-2.155-1.004-1.682-.595-2.113-.926 1.096-1.296 2.746-2.642 3.392-7.003.05-.347.007-.565 0-.845-.004-.17.035-.237.23-.256a4.173 4.173 0 001.545-.475c1.396-.763 1.96-2.015 2.093-3.517.02-.23-.004-.467-.247-.588zM11.581 18c-2.089-1.642-3.102-2.183-3.52-2.16-.392.024-.321.471-.235.763.09.288.207.486.371.739.114.167.192.416-.113.603-.673.416-1.842-.14-1.897-.167-1.361-.802-2.5-1.86-3.301-3.307-.774-1.393-1.224-2.887-1.298-4.482-.02-.386.093-.522.477-.592a4.696 4.696 0 011.529-.039c2.132.312 3.946 1.265 5.468 2.774.868.86 1.525 1.887 2.202 2.891.72 1.066 1.494 2.082 2.48 2.914.348.292.625.514.891.677-.802.09-2.14.11-3.054-.614zm1-6.44a.306.306 0 01.415-.287.302.302 0 01.2.288.306.306 0 01-.31.307.303.303 0 01-.304-.308zm3.11 1.596c-.2.081-.399.151-.59.16a1.245 1.245 0 01-.798-.254c-.274-.23-.47-.358-.552-.758a1.73 1.73 0 01.016-.588c.07-.327-.008-.537-.239-.727-.187-.156-.426-.199-.688-.199a.559.559 0 01-.254-.078c-.11-.054-.2-.19-.114-.358.028-.054.16-.186.192-.21.356-.202.767-.136 1.146.016.352.144.618.408 1.001.782.391.451.462.576.685.914.176.265.336.537.445.848.067.195-.019.354-.25.452z" fill="#1B2657" fill-rule="evenodd"/><path d="M 13.2 4.6 C 13.0 3.5 12.3 2.7 11.4 2.3" fill="none" stroke="#1B2657" stroke-width="0.62" stroke-linecap="round"/></g>
+    <text x="492.0" y="490" text-anchor="middle" font-family="Consolas,monospace" font-size="10.5" fill="#7885AE">×3 → 132 px</text>
+    <rect x="804.9" y="187.7" width="30.2" height="22.3" fill="none" stroke="#3F6CC4" stroke-width="1" stroke-dasharray="4 3"/>
+    <g transform="translate(804.880 183.968) scale(1.25998)"><path d="M23.748 4.482c-.254-.124-.364.113-.512.234-.051.039-.094.09-.137.136-.372.397-.806.657-1.373.626-.829-.046-1.537.214-2.163.848-.133-.782-.575-1.248-1.247-1.548-.352-.156-.708-.311-.955-.65-.172-.241-.219-.51-.305-.774-.055-.16-.11-.323-.293-.35-.2-.031-.278.136-.356.276-.313.572-.434 1.202-.422 1.84.027 1.436.633 2.58 1.838 3.393.137.093.172.187.129.323-.082.28-.18.552-.266.833-.055.179-.137.217-.329.14a5.526 5.526 0 01-1.736-1.18c-.857-.828-1.631-1.742-2.597-2.458a11.365 11.365 0 00-.689-.471c-.985-.957.13-1.743.388-1.836.27-.098.093-.432-.779-.428-.872.004-1.67.295-2.687.684a3.055 3.055 0 01-.465.137 9.597 9.597 0 00-2.883-.102c-1.885.21-3.39 1.102-4.497 2.623C.082 8.606-.231 10.684.152 12.85c.403 2.284 1.569 4.175 3.36 5.653 1.858 1.533 3.997 2.284 6.438 2.14 1.482-.085 3.133-.284 4.994-1.86.47.234.962.327 1.78.397.63.059 1.236-.03 1.705-.128.735-.156.684-.837.419-.961-2.155-1.004-1.682-.595-2.113-.926 1.096-1.296 2.746-2.642 3.392-7.003.05-.347.007-.565 0-.845-.004-.17.035-.237.23-.256a4.173 4.173 0 001.545-.475c1.396-.763 1.96-2.015 2.093-3.517.02-.23-.004-.467-.247-.588zM11.581 18c-2.089-1.642-3.102-2.183-3.52-2.16-.392.024-.321.471-.235.763.09.288.207.486.371.739.114.167.192.416-.113.603-.673.416-1.842-.14-1.897-.167-1.361-.802-2.5-1.86-3.301-3.307-.774-1.393-1.224-2.887-1.298-4.482-.02-.386.093-.522.477-.592a4.696 4.696 0 011.529-.039c2.132.312 3.946 1.265 5.468 2.774.868.86 1.525 1.887 2.202 2.891.72 1.066 1.494 2.082 2.48 2.914.348.292.625.514.891.677-.802.09-2.14.11-3.054-.614zm1-6.44a.306.306 0 01.415-.287.302.302 0 01.2.288.306.306 0 01-.31.307.303.303 0 01-.304-.308zm3.11 1.596c-.2.081-.399.151-.59.16a1.245 1.245 0 01-.798-.254c-.274-.23-.47-.358-.552-.758a1.73 1.73 0 01.016-.588c.07-.327-.008-.537-.239-.727-.187-.156-.426-.199-.688-.199a.559.559 0 01-.254-.078c-.11-.054-.2-.19-.114-.358.028-.054.16-.186.192-.21.356-.202.767-.136 1.146.016.352.144.618.408 1.001.782.391.451.462.576.685.914.176.265.336.537.445.848.067.195-.019.354-.25.452z" fill="#1B2657" fill-rule="evenodd"/><path d="M 13.2 4.6 C 13.0 3.5 12.3 2.7 11.4 2.3" fill="none" stroke="#1B2657" stroke-width="0.62" stroke-linecap="round"/></g>
+    <g stroke="#8C99B8" stroke-width="1"><path d="M804.9 220.0 H835.1 M804.9 215.0 V225.0 M835.1 215.0 V225.0"/></g>
+    <text x="820.0" y="118" text-anchor="middle" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="700" fill="#1B2657">③ 2.40 mm</text>
+    <text x="820.0" y="136" text-anchor="middle" font-family="Consolas,monospace" font-size="11" fill="#6C7AA8">30.2 px</text>
+    <g transform="translate(774.640 391.905) scale(3.77993)"><path d="M23.748 4.482c-.254-.124-.364.113-.512.234-.051.039-.094.09-.137.136-.372.397-.806.657-1.373.626-.829-.046-1.537.214-2.163.848-.133-.782-.575-1.248-1.247-1.548-.352-.156-.708-.311-.955-.65-.172-.241-.219-.51-.305-.774-.055-.16-.11-.323-.293-.35-.2-.031-.278.136-.356.276-.313.572-.434 1.202-.422 1.84.027 1.436.633 2.58 1.838 3.393.137.093.172.187.129.323-.082.28-.18.552-.266.833-.055.179-.137.217-.329.14a5.526 5.526 0 01-1.736-1.18c-.857-.828-1.631-1.742-2.597-2.458a11.365 11.365 0 00-.689-.471c-.985-.957.13-1.743.388-1.836.27-.098.093-.432-.779-.428-.872.004-1.67.295-2.687.684a3.055 3.055 0 01-.465.137 9.597 9.597 0 00-2.883-.102c-1.885.21-3.39 1.102-4.497 2.623C.082 8.606-.231 10.684.152 12.85c.403 2.284 1.569 4.175 3.36 5.653 1.858 1.533 3.997 2.284 6.438 2.14 1.482-.085 3.133-.284 4.994-1.86.47.234.962.327 1.78.397.63.059 1.236-.03 1.705-.128.735-.156.684-.837.419-.961-2.155-1.004-1.682-.595-2.113-.926 1.096-1.296 2.746-2.642 3.392-7.003.05-.347.007-.565 0-.845-.004-.17.035-.237.23-.256a4.173 4.173 0 001.545-.475c1.396-.763 1.96-2.015 2.093-3.517.02-.23-.004-.467-.247-.588zM11.581 18c-2.089-1.642-3.102-2.183-3.52-2.16-.392.024-.321.471-.235.763.09.288.207.486.371.739.114.167.192.416-.113.603-.673.416-1.842-.14-1.897-.167-1.361-.802-2.5-1.86-3.301-3.307-.774-1.393-1.224-2.887-1.298-4.482-.02-.386.093-.522.477-.592a4.696 4.696 0 011.529-.039c2.132.312 3.946 1.265 5.468 2.774.868.86 1.525 1.887 2.202 2.891.72 1.066 1.494 2.082 2.48 2.914.348.292.625.514.891.677-.802.09-2.14.11-3.054-.614zm1-6.44a.306.306 0 01.415-.287.302.302 0 01.2.288.306.306 0 01-.31.307.303.303 0 01-.304-.308zm3.11 1.596c-.2.081-.399.151-.59.16a1.245 1.245 0 01-.798-.254c-.274-.23-.47-.358-.552-.758a1.73 1.73 0 01.016-.588c.07-.327-.008-.537-.239-.727-.187-.156-.426-.199-.688-.199a.559.559 0 01-.254-.078c-.11-.054-.2-.19-.114-.358.028-.054.16-.186.192-.21.356-.202.767-.136 1.146.016.352.144.618.408 1.001.782.391.451.462.576.685.914.176.265.336.537.445.848.067.195-.019.354-.25.452z" fill="#1B2657" fill-rule="evenodd"/><path d="M 13.2 4.6 C 13.0 3.5 12.3 2.7 11.4 2.3" fill="none" stroke="#1B2657" stroke-width="0.62" stroke-linecap="round"/></g>
+    <text x="820.0" y="490" text-anchor="middle" font-family="Consolas,monospace" font-size="10.5" fill="#7885AE">×3 → 91 px</text>
+    <rect x="1141.1" y="199.8" width="13.9" height="10.2" fill="none" stroke="#3F6CC4" stroke-width="1" stroke-dasharray="4 3"/>
+    <g transform="translate(1141.070 198.069) scale(0.57749)"><path d="M23.748 4.482c-.254-.124-.364.113-.512.234-.051.039-.094.09-.137.136-.372.397-.806.657-1.373.626-.829-.046-1.537.214-2.163.848-.133-.782-.575-1.248-1.247-1.548-.352-.156-.708-.311-.955-.65-.172-.241-.219-.51-.305-.774-.055-.16-.11-.323-.293-.35-.2-.031-.278.136-.356.276-.313.572-.434 1.202-.422 1.84.027 1.436.633 2.58 1.838 3.393.137.093.172.187.129.323-.082.28-.18.552-.266.833-.055.179-.137.217-.329.14a5.526 5.526 0 01-1.736-1.18c-.857-.828-1.631-1.742-2.597-2.458a11.365 11.365 0 00-.689-.471c-.985-.957.13-1.743.388-1.836.27-.098.093-.432-.779-.428-.872.004-1.67.295-2.687.684a3.055 3.055 0 01-.465.137 9.597 9.597 0 00-2.883-.102c-1.885.21-3.39 1.102-4.497 2.623C.082 8.606-.231 10.684.152 12.85c.403 2.284 1.569 4.175 3.36 5.653 1.858 1.533 3.997 2.284 6.438 2.14 1.482-.085 3.133-.284 4.994-1.86.47.234.962.327 1.78.397.63.059 1.236-.03 1.705-.128.735-.156.684-.837.419-.961-2.155-1.004-1.682-.595-2.113-.926 1.096-1.296 2.746-2.642 3.392-7.003.05-.347.007-.565 0-.845-.004-.17.035-.237.23-.256a4.173 4.173 0 001.545-.475c1.396-.763 1.96-2.015 2.093-3.517.02-.23-.004-.467-.247-.588zM11.581 18c-2.089-1.642-3.102-2.183-3.52-2.16-.392.024-.321.471-.235.763.09.288.207.486.371.739.114.167.192.416-.113.603-.673.416-1.842-.14-1.897-.167-1.361-.802-2.5-1.86-3.301-3.307-.774-1.393-1.224-2.887-1.298-4.482-.02-.386.093-.522.477-.592a4.696 4.696 0 011.529-.039c2.132.312 3.946 1.265 5.468 2.774.868.86 1.525 1.887 2.202 2.891.72 1.066 1.494 2.082 2.48 2.914.348.292.625.514.891.677-.802.09-2.14.11-3.054-.614zm1-6.44a.306.306 0 01.415-.287.302.302 0 01.2.288.306.306 0 01-.31.307.303.303 0 01-.304-.308zm3.11 1.596c-.2.081-.399.151-.59.16a1.245 1.245 0 01-.798-.254c-.274-.23-.47-.358-.552-.758a1.73 1.73 0 01.016-.588c.07-.327-.008-.537-.239-.727-.187-.156-.426-.199-.688-.199a.559.559 0 01-.254-.078c-.11-.054-.2-.19-.114-.358.028-.054.16-.186.192-.21.356-.202.767-.136 1.146.016.352.144.618.408 1.001.782.391.451.462.576.685.914.176.265.336.537.445.848.067.195-.019.354-.25.452z" fill="#1B2657" fill-rule="evenodd"/><path d="M 13.2 4.6 C 13.0 3.5 12.3 2.7 11.4 2.3" fill="none" stroke="#1B2657" stroke-width="0.62" stroke-linecap="round"/></g>
+    <g stroke="#8C99B8" stroke-width="1"><path d="M1141.1 220.0 H1154.9 M1141.1 215.0 V225.0 M1154.9 215.0 V225.0"/></g>
+    <text x="1148.0" y="118" text-anchor="middle" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="700" fill="#1B2657">④ 1.10 mm</text>
+    <text x="1148.0" y="136" text-anchor="middle" font-family="Consolas,monospace" font-size="11" fill="#6C7AA8">13.9 px</text>
+    <g transform="translate(1127.210 434.207) scale(1.73247)"><path d="M23.748 4.482c-.254-.124-.364.113-.512.234-.051.039-.094.09-.137.136-.372.397-.806.657-1.373.626-.829-.046-1.537.214-2.163.848-.133-.782-.575-1.248-1.247-1.548-.352-.156-.708-.311-.955-.65-.172-.241-.219-.51-.305-.774-.055-.16-.11-.323-.293-.35-.2-.031-.278.136-.356.276-.313.572-.434 1.202-.422 1.84.027 1.436.633 2.58 1.838 3.393.137.093.172.187.129.323-.082.28-.18.552-.266.833-.055.179-.137.217-.329.14a5.526 5.526 0 01-1.736-1.18c-.857-.828-1.631-1.742-2.597-2.458a11.365 11.365 0 00-.689-.471c-.985-.957.13-1.743.388-1.836.27-.098.093-.432-.779-.428-.872.004-1.67.295-2.687.684a3.055 3.055 0 01-.465.137 9.597 9.597 0 00-2.883-.102c-1.885.21-3.39 1.102-4.497 2.623C.082 8.606-.231 10.684.152 12.85c.403 2.284 1.569 4.175 3.36 5.653 1.858 1.533 3.997 2.284 6.438 2.14 1.482-.085 3.133-.284 4.994-1.86.47.234.962.327 1.78.397.63.059 1.236-.03 1.705-.128.735-.156.684-.837.419-.961-2.155-1.004-1.682-.595-2.113-.926 1.096-1.296 2.746-2.642 3.392-7.003.05-.347.007-.565 0-.845-.004-.17.035-.237.23-.256a4.173 4.173 0 001.545-.475c1.396-.763 1.96-2.015 2.093-3.517.02-.23-.004-.467-.247-.588zM11.581 18c-2.089-1.642-3.102-2.183-3.52-2.16-.392.024-.321.471-.235.763.09.288.207.486.371.739.114.167.192.416-.113.603-.673.416-1.842-.14-1.897-.167-1.361-.802-2.5-1.86-3.301-3.307-.774-1.393-1.224-2.887-1.298-4.482-.02-.386.093-.522.477-.592a4.696 4.696 0 011.529-.039c2.132.312 3.946 1.265 5.468 2.774.868.86 1.525 1.887 2.202 2.891.72 1.066 1.494 2.082 2.48 2.914.348.292.625.514.891.677-.802.09-2.14.11-3.054-.614zm1-6.44a.306.306 0 01.415-.287.302.302 0 01.2.288.306.306 0 01-.31.307.303.303 0 01-.304-.308zm3.11 1.596c-.2.081-.399.151-.59.16a1.245 1.245 0 01-.798-.254c-.274-.23-.47-.358-.552-.758a1.73 1.73 0 01.016-.588c.07-.327-.008-.537-.239-.727-.187-.156-.426-.199-.688-.199a.559.559 0 01-.254-.078c-.11-.054-.2-.19-.114-.358.028-.054.16-.186.192-.21.356-.202.767-.136 1.146.016.352.144.618.408 1.001.782.391.451.462.576.685.914.176.265.336.537.445.848.067.195-.019.354-.25.452z" fill="#1B2657" fill-rule="evenodd"/><path d="M 13.2 4.6 C 13.0 3.5 12.3 2.7 11.4 2.3" fill="none" stroke="#1B2657" stroke-width="0.62" stroke-linecap="round"/></g>
+    <text x="1148.0" y="490" text-anchor="middle" font-family="Consolas,monospace" font-size="10.5" fill="#7885AE">×3 → 42 px</text>
+    <text x="1304" y="272" text-anchor="end" font-family="Consolas,monospace" font-size="10.5" fill="#A63A32">放大列按矢量绘制，仅示意结构；③④ 档实际印刷会因墨层扩散进一步丢失细节，判读以下方实测表为准</text>
+  </svg>
+  <table class="vtab">
+    <thead><tr><th>档位</th><th>长边</th><th>像素</th><th>负形眼</th><th>剪影可辨性</th><th>允许用途</th></tr></thead>
+    <tbody>
+      <tr><td class="num">①</td><td class="num">5.00 mm</td><td class="num">63.0 px</td><td><span class="vok">清晰</span></td><td><span class="vok">清晰</span></td><td>票面主徽 / <b>票面次徽（本设定取 9.00 mm）</b></td></tr>
+      <tr><td class="num">②</td><td class="num">3.50 mm</td><td class="num">44.1 px</td><td><span class="vwarn">尚可辨（临界）</span></td><td><span class="vok">清晰</span></td><td>次徽、底纹主题、重复阵列</td></tr>
+      <tr><td class="num">③</td><td class="num">2.40 mm</td><td class="num">30.2 px</td><td><span class="vno">糊连 · 不可辨</span></td><td><span class="vok">清晰</span></td><td>底纹、重复阵列</td></tr>
+      <tr><td class="num">④</td><td class="num">1.10 mm</td><td class="num">13.9 px</td><td><span class="vno">丢失</span></td><td><span class="vwarn">可辨（绝对下限）</span></td><td>仅防伪微缩，不得单独作为识别元素</td></tr>
+      <tr><td class="num">—</td><td class="num">&lt; 1.10 mm</td><td class="num">&lt; 13.9 px</td><td><span class="vno">丢失</span></td><td><span class="vno">不可辨（10 px 沦为色块）</span></td><td><span class="vno">禁用，改用字标「DeepSeek Token银行」</span></td></tr>
+    </tbody>
+  </table>
+  <div class="tmw">
+    <div class="tmw-h">⚠ 版权与商标警示 · TRADEMARK &amp; COPYRIGHT NOTICE（硬性交付内容，不得删除或弱化）</div>
+    <ol>
+      <li><b>权属事实：</b>DeepSeek 鲸鱼图形是 <b>DeepSeek 的商标与品牌标识</b>，其著作权与商标权<b>均不属于本项目</b>。本节所用徽志即该官方矢量，<b>并非本项目原创</b>，本项目对该图形不主张任何权利。</li>
+      <li><b>风险事实：</b>把该图形原样用作发行机构徽志，在真实货币语境下等于宣称「本券由 DeepSeek 发行」，属于冒用商标，正是《鲸元券货币规范书》<b>8.1.2</b>「风险事实」项所载明的情形；相关的禁止行为清单见规范书 <b>8.1.4</b>（禁止旋转、镜像、拉伸、改色、加描边或渐变，并禁止覆盖官方负形眼部）。</li>
+      <li><b>采用理由：</b>本项目为<b>用户个人虚拟设定 / 同人用途</b>，不用于任何真实支付、兑换、投资或商业发行。经用户明确指示后采用该图形，故此处照办，但如实标注来源与风险，<b>不得默不作声地将该图形当成本项目原创</b>。</li>
+      <li><b>与规范书的对应关系（已于 2026-10-05 消解）：</b>《鲸元券货币规范书》<b>8.1.1</b> 陈述权属事实（DeepSeek 鲸鱼图形是 DeepSeek 的商标与品牌标识，著作权与商标权均不属于本项目）；<b>8.1.2</b> 载明本项目鲸徽<b>即该官方标识矢量</b>及其采用依据（用户明确指示，个人虚拟设定／同人玩赏，不进入流通、不作商业使用）与风险事实（真实货币语境下原样使用等同于冒用商标，不得商业发行、真实印制或使人误认为 DeepSeek 官方发行）；<b>8.1.4</b> 记明本项目对该矢量<b>零改动（不添加、不修改、不覆盖任何笔触）</b>，并禁止覆盖官方负形眼部；<b>4.3.1</b> 已同步为官方矢量口径。本图 §05 与规范书 4.3 <b>已一致，无遗留冲突</b>。权属与风险事实<b>不得删除或弱化</b>，须随本图一并交付最终用户（规范书 8.4.3）。<b>附注：</b>本轮起票面主徽以<b>光变油墨（OVI）</b>施加，其角度变色由油墨本身实现；规范书 <b>4.1.1</b> 已载明屏幕稿的渐变仅为工艺模拟，<b>不构成对标识的改色或加渐变</b>，与 8.1.4 的零改动原则不冲突。</li>
+      <li><b>本图仍然坚持的限制条款：</b>仅限虚拟设定 / 同人 / 个人收藏用途；禁止用于任何真实或仿真货币的印制、发行、销售；禁止与 DeepSeek 名称或其品牌色 <code>#4D6BFE</code> 并置而造成来源混淆（本图全部用色取自本券自身的藏青／宝蓝／金体系，未使用品牌蓝）；不得声称本项目获得 DeepSeek 授权、认可或赞助。</li>
+    </ol>
+  </div>
+</section>
+
+<style>
+.den6{display:grid;grid-template-columns:repeat(6,1fr);gap:7px}
+.den6 .den-chip{height:112px;flex-direction:column;gap:0}
+.den6 .den-chip b{font-family:Georgia,"Times New Roman",serif;font-size:21px;font-weight:700;
+  letter-spacing:.01em;line-height:1;display:block}
+.den6 .den-chip u{display:block;font-family:Consolas,monospace;font-size:9px;letter-spacing:.2em;
+  text-decoration:none;opacity:.85;margin-top:5px}
+.den6 .den-hex{font-size:11px;padding:6px 0 1px}
+.den6 .den-nm{font-size:11px;padding-bottom:4px}
+.den6 .den-mt{font-size:9.5px;line-height:1.62;padding:5px 4px 8px}
+.axis-t{font-size:10px}
+.sub6{grid-template-columns:repeat(3,1fr)}
+</style>
+
+<section class="sec">
+  <div class="sh"><span class="sh-n">06</span><h2>面额色彩分级条 · DENOMINATION COLOUR RAMP</h2><span class="sh-en">6 MAIN + 3 SUB · 10M – 500M TOKEN</span></div>
+  <div class="rule"></div>
+  <div class="note">
+    「三维同时分级」中的<b>色彩一维</b>：六档主币<b>各配一个专属专色</b>（规范书 4.4.2），色相角自冷区
+    <b>201° → 173° → 258° → 224°</b> 推进后进入暖区 <b>31° → 42°</b>；券长与主景主题同步递增、互不复用。
+    相邻档色相差 ≥ 18° 为达标，差值不足的组合改由明度分离（ΔL* ≥ 25，规范书 3.3.1）。每档另配<b>纸色</b>（该档专色的 HLS 派生淡色：保色相、明度 0.880、饱和度 ×0.55、下限 0.20），专色文字在其自身纸色上的对比度全部 ≥ 4.5 : 1；派生规则与禁用做法见第 01 节。
+  </div>
+
+  <div class="subhd">主币六档 · MAIN SERIES　（专属专色，随券长单调推进）</div>
+  <div class="axis">
+    <span class="axis-t">冷 COOL　H201°</span>
+    <span class="axis-b"><i style="background:#24506B"></i><i style="background:#1F5A52"></i><i style="background:#4A3A6E"></i><i style="background:#1B2657"></i><i style="background:#8A5A2B"></i><i style="background:#2E2717"></i></span>
+    <span class="axis-t">暖 WARM　H42°</span>
+  </div>
+  <div class="den6">
+    <div class="den">
+      <div class="den-chip" style="background:#24506B;color:#F5EFDE"><b>10,000,000</b><u>TOKEN</u></div>
+      <div class="den-hex">#24506B</div><div class="den-nm">深青蓝 · H201°</div>
+      <div class="den-mt">132.0 × 70.0 mm ｜ 1663 px<br>主景「引航」<br>壹仟萬 TOKEN</div>
+      <div class="den-pp"><i style="background:#D8E2E9"></i>纸色 #D8E2E9 ｜ 对比度 6.56 : 1<br>压印 <i style="background:#91AEC0"></i>#91AEC0</div>
+    </div>
+    <div class="den">
+      <div class="den-chip" style="background:#1F5A52;color:#F5EFDE"><b>20,000,000</b><u>TOKEN</u></div>
+      <div class="den-hex">#1F5A52</div><div class="den-nm">深海绿 · H173°</div>
+      <div class="den-mt">142.0 × 70.0 mm ｜ 1789 px<br>主景「夜航」<br>贰仟萬 TOKEN</div>
+      <div class="den-pp"><i style="background:#D8E9E6"></i>纸色 #D8E9E6 ｜ 对比度 6.33 : 1<br>压印 <i style="background:#91C0B9"></i>#91C0B9</div>
+    </div>
+    <div class="den">
+      <div class="den-chip" style="background:#4A3A6E;color:#F5EFDE"><b>50,000,000</b><u>TOKEN</u></div>
+      <div class="den-hex">#4A3A6E</div><div class="den-nm">紫罗兰 · H258°</div>
+      <div class="den-mt">148.0 × 70.0 mm ｜ 1865 px<br>主景「港市」<br>伍仟萬 TOKEN</div>
+      <div class="den-pp"><i style="background:#DEDAE7"></i>纸色 #DEDAE7 ｜ 对比度 7.21 : 1<br>压印 <i style="background:#A299B8"></i>#A299B8</div>
+    </div>
+    <div class="den">
+      <div class="den-chip" style="background:#1B2657;color:#F5EFDE"><b>100,000,000</b><u>TOKEN</u></div>
+      <div class="den-hex">#1B2657</div><div class="den-nm">藏青 · H224°</div>
+      <div class="den-mt">150.0 × 70.0 mm ｜ 1890 px<br>主景「守望 ・ 基准券」<br>壹億 TOKEN</div>
+      <div class="den-pp"><i style="background:#D8DBE9"></i>纸色 #D8DBE9 ｜ 对比度 10.42 : 1<br>压印 <i style="background:#8F98C1"></i>#8F98C1</div>
+    </div>
+    <div class="den">
+      <div class="den-chip" style="background:#8A5A2B;color:#F5EFDE"><b>200,000,000</b><u>TOKEN</u></div>
+      <div class="den-hex">#8A5A2B</div><div class="den-nm">赭金 · H31°</div>
+      <div class="den-mt">158.0 × 70.0 mm ｜ 1991 px<br>主景「星图」<br>贰億 TOKEN</div>
+      <div class="den-pp"><i style="background:#E9E0D8"></i>纸色 #E9E0D8 ｜ 对比度 4.50 : 1<br>压印 <i style="background:#C1A88F"></i>#C1A88F</div>
+    </div>
+    <div class="den">
+      <div class="den-chip" style="background:#2E2717;color:#F5EFDE"><b>500,000,000</b><u>TOKEN</u></div>
+      <div class="den-hex">#2E2717</div><div class="den-nm">玄金 · H42°</div>
+      <div class="den-mt">176.0 × 70.0 mm ｜ 2218 px<br>主景「远洋」<br>伍億 TOKEN</div>
+      <div class="den-pp"><i style="background:#E7E3DA"></i>纸色 #E7E3DA ｜ 对比度 11.56 : 1<br>压印 <i style="background:#B8AF98"></i>#B8AF98</div>
+    </div>
+  </div>
+  <svg viewBox="0 0 1312 186" width="1312" height="186" style="display:block;margin-top:14px" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#C6CFE2" stroke-width="1" stroke-dasharray="4 4">
+      <path d="M131 135.0 H1181"/>
+      <path d="M131 115.0 H1181"/>
+      <path d="M131 95.0 H1181"/>
+      <path d="M131 75.0 H1181"/>
+      <path d="M131 55.0 H1181"/>
+      <path d="M131 35.0 H1181"/>
+    </g>
+    <g stroke="#5A6688" stroke-width="1.6"><path d="M131 135.0 H1181"/><path d="M131 35.0 V135.0"/></g>
+    <g font-family="Consolas,monospace" font-size="10" fill="#7885AE" text-anchor="end">
+      <text x="123" y="138.5">0</text>
+      <text x="123" y="118.5">10</text>
+      <text x="123" y="98.5">20</text>
+      <text x="123" y="78.5">30</text>
+      <text x="123" y="58.5">40</text>
+      <text x="123" y="38.5">50</text>
+    </g>
+    <text x="123" y="25.0" text-anchor="end" font-family="Consolas,monospace" font-size="10" fill="#7885AE">L*</text>
+    <rect x="131.0" y="70.6" width="100" height="64.4" fill="#24506B" stroke="#1B2657" stroke-width="1"/>
+    <text x="181.0" y="63.6" font-family="Consolas,monospace" font-size="11" font-weight="700" fill="#1B2657" text-anchor="middle">L*32</text>
+    <text x="181.0" y="153.0" font-family="Consolas,monospace" font-size="9.5" fill="#41507E" text-anchor="middle">10,000,000</text>
+    <text x="181.0" y="167.0" font-family="Consolas,monospace" font-size="9.5" fill="#7885AE" text-anchor="middle">H201°</text>
+    <rect x="321.0" y="66.2" width="100" height="68.8" fill="#1F5A52" stroke="#1B2657" stroke-width="1"/>
+    <text x="371.0" y="59.2" font-family="Consolas,monospace" font-size="11" font-weight="700" fill="#1B2657" text-anchor="middle">L*34</text>
+    <text x="371.0" y="153.0" font-family="Consolas,monospace" font-size="9.5" fill="#41507E" text-anchor="middle">20,000,000</text>
+    <text x="371.0" y="167.0" font-family="Consolas,monospace" font-size="9.5" fill="#7885AE" text-anchor="middle">H173°</text>
+    <rect x="511.0" y="78.2" width="100" height="56.8" fill="#4A3A6E" stroke="#1B2657" stroke-width="1"/>
+    <text x="561.0" y="71.2" font-family="Consolas,monospace" font-size="11" font-weight="700" fill="#1B2657" text-anchor="middle">L*28</text>
+    <text x="561.0" y="153.0" font-family="Consolas,monospace" font-size="9.5" fill="#41507E" text-anchor="middle">50,000,000</text>
+    <text x="561.0" y="167.0" font-family="Consolas,monospace" font-size="9.5" fill="#7885AE" text-anchor="middle">H258°</text>
+    <rect x="701.0" y="101.0" width="100" height="34.0" fill="#1B2657" stroke="#8A99BE" stroke-width="1"/>
+    <text x="751.0" y="94.0" font-family="Consolas,monospace" font-size="11" font-weight="700" fill="#1B2657" text-anchor="middle">L*17</text>
+    <text x="751.0" y="153.0" font-family="Consolas,monospace" font-size="9.5" fill="#41507E" text-anchor="middle">100,000,000</text>
+    <text x="751.0" y="167.0" font-family="Consolas,monospace" font-size="9.5" fill="#7885AE" text-anchor="middle">H224°</text>
+    <rect x="891.0" y="49.8" width="100" height="85.2" fill="#8A5A2B" stroke="#1B2657" stroke-width="1"/>
+    <text x="941.0" y="42.8" font-family="Consolas,monospace" font-size="11" font-weight="700" fill="#1B2657" text-anchor="middle">L*43</text>
+    <text x="941.0" y="153.0" font-family="Consolas,monospace" font-size="9.5" fill="#41507E" text-anchor="middle">200,000,000</text>
+    <text x="941.0" y="167.0" font-family="Consolas,monospace" font-size="9.5" fill="#7885AE" text-anchor="middle">H31°</text>
+    <rect x="1081.0" y="103.0" width="100" height="32.0" fill="#2E2717" stroke="#1B2657" stroke-width="1"/>
+    <text x="1131.0" y="96.0" font-family="Consolas,monospace" font-size="11" font-weight="700" fill="#1B2657" text-anchor="middle">L*16</text>
+    <text x="1131.0" y="153.0" font-family="Consolas,monospace" font-size="9.5" fill="#41507E" text-anchor="middle">500,000,000</text>
+    <text x="1131.0" y="167.0" font-family="Consolas,monospace" font-size="9.5" fill="#7885AE" text-anchor="middle">H42°</text>
+    <text x="656" y="183.0" font-family="Consolas,monospace" font-size="10.5" text-anchor="middle" fill="#7885AE">横轴为面额（TOKEN，含千位分隔符）｜纵轴为实测明度 L* ｜柱内数字为该档专色的 L* 实测值</text>
+  </svg>
+
+  <div class="subhd">辅币三档 · SUBUNIT SERIES　（100,000 / 200,000 / 500,000 分 ＝ 1,000 / 2,000 / 5,000 TOKEN）</div>
+  <div class="den6 sub6">
+    <div class="den">
+      <div class="den-chip" style="background:#9FB7AE;color:#1B2657"><b style="font-size:19px">100,000 分</b><u>＝ 1,000 TOKEN</u></div>
+      <div class="den-hex">#9FB7AE</div><div class="den-nm">浅雾青 · H158°</div>
+      <div class="den-mt">100.0 × 52.0 mm ｜ 1260 × 655 px<br>鲸徽 ＋ 幼鲸尾鳍破浪</div>
+    </div>
+    <div class="den">
+      <div class="den-chip" style="background:#8FA3C4;color:#1B2657"><b style="font-size:19px">200,000 分</b><u>＝ 2,000 TOKEN</u></div>
+      <div class="den-hex">#8FA3C4</div><div class="den-nm">浅灰蓝 · H217°</div>
+      <div class="den-mt">108.0 × 54.0 mm ｜ 1361 × 680 px<br>鲸徽 ＋ 双尾鳍交叉浪花</div>
+    </div>
+    <div class="den">
+      <div class="den-chip" style="background:#C2A46B;color:#1B2657"><b style="font-size:19px">500,000 分</b><u>＝ 5,000 TOKEN</u></div>
+      <div class="den-hex">#C2A46B</div><div class="den-nm">浅赭金 · H39°</div>
+      <div class="den-mt">116.0 × 56.0 mm ｜ 1462 × 706 px<br>鲸徽 ＋ 浪线环形饰框</div>
+    </div>
+  </div>
+
+  <div class="warnbar">
+    <b>分色规则：</b>相邻面额不得共用同一主色；色相差低于 <b>18°</b> 时必须由明度分离补足（ΔL* ≥ 25）。
+    辅币三档（浅雾青／浅灰蓝／浅赭金）与六档主币的色相区间不重叠，机器分拣时不产生误判。
+    <br><b>已裁决并整改（明度分离达标）：</b>500,000,000 档专色由 <code>#3C3320</code>（H 40.7°，L* 21.7）改为 <b>#2E2717</b>（H 41.7°，L* 16.0）。200,000,000（赭金 <b>#8A5A2B</b>，H31°）与 500,000,000 的色相差 <b>12.1°</b>（&lt; 18°），按规范书 3.3.1 须由明度分离补足，两者实测 <b>ΔL* ＝ 26.6 ≥ 25</b>，<b>达标</b>；500,000 分（浅赭金 #C2A46B）与 500,000,000 的色相差 <b>2.4°</b>，由 <b>ΔL* ＝ 52.8</b> 分离。实测基准见规范书 <b>3.3.1 相邻档合规实测表</b>；专色变更见规范书 <b>3.3 / 4.4.2</b>。
+    <br><b>数据来源：</b>面额数值、券长、画布像素、专属专色与主景主题全部取自《鲸元券货币规范书》
+    3.2（主币序列）、3.3（三维同时分级）、4.4.2（主币专属专色）、4.4.3（辅币专属专色）；
+    本图仅做视觉呈现，数值冲突时以规范书为准。L* 为按 sRGB → CIE Lab（D65）实测计算。
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-t">鲸元券 · 视觉系统总图<span>DOC. VS-01 / v1.0 / 2026-10-05</span></div>
+  <div class="foot-c">
+    发行机构 <b>DeepSeek Token银行 · DEEPSEEK TOKEN BANK</b>　|　货币单位 <b>TOKEN（词元 ₮）</b>　|　票面基准 <b>150 mm × 70 mm</b>　|　换算 <b>12.6 px/mm</b><br>
+    发行体制 <b>央行制</b>　|　世界观 <b>现实</b>　|　性质 <b>娱乐性虚拟设定，非法定货币</b><br>
+    本图与《鲸元券货币规范书》配套使用：第 02 节对应规范书第 2 章「票面规格」，第 03 节对应第 4 章「视觉系统 · 字体规范」，
+    第 04 节对应第 4 章「纹饰母题库」，第 05 / 06 节对应第 4 章「徽志用法」与第 3 章「面额体系 · 色彩分级」。
+  </div>
+  <div class="foot-w">
+    <b>合规警示</b>　本货币及其全部图形、人物、机构均为虚构游戏设定，不对应任何现实法偿货币，不得用于任何真实支付、兑换、投资或交易。<b>本图第 05 节徽志采用 DeepSeek 官方鲸鱼矢量，该图形是 DeepSeek 的商标与品牌标识，著作权与商标权均不属本项目</b>，此处仅因用户明确指示而用于个人虚拟设定／同人用途；详见第 05 节「版权与商标警示」。<b>禁止将本图用于任何仿制真实货币的用途。</b>
+  </div>
+</footer>
+
+</body>
+</html>

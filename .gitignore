@@ -1,0 +1,65 @@
+# ═══════════════════════════════════════════════════════════════════
+#  鲸元券 · 仓库忽略规则
+#
+#  原则：仓库只收「无法由脚本重新生成的源」——
+#        脚本、矢量图稿、文档、源素材。
+#        一切可重新渲染的位图、视频、帧序列、压缩包，走 Release
+#        附件或 Git LFS。当前工作区约 13 GB，其中 99% 是这类产物。
+# ═══════════════════════════════════════════════════════════════════
+
+# ── 视频与帧序列：单个数百 MB / 上千帧，绝不进仓库 ───────────────
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.webm
+
+# ── 交付压缩包：215 MB，走 Release 附件 ──────────────────────────
+*.zip
+*.7z
+*.rar
+
+# ── 超高清位图：单张约 15 MB，12 张近 190 MB ─────────────────────
+# 需要版本管理请用 Git LFS：
+#   git lfs install
+#   git lfs track "dist/png/*.png"
+# 或只提交 SVG（矢量、每份 < 700 KB、可无损缩放，信息量更高）。
+dist/png/
+
+# ── 渲染中间产物 ─────────────────────────────────────────────────
+# 下划线开头的一律是工作目录或校验图：4K 帧序列、探针、裁片，
+# 合计约 11 GB。build/_* 同时覆盖目录与散图。
+build/_*
+build/reel/*
+build/reel_frames/
+build/reel_probe/
+
+# 自包含 HTML 预览页与位图成品，可由脚本随时重新生成
+build/*.html
+build/mockup-*.png
+build/reverse-*.png
+build/front-*.png
+build/back-*.png
+build/series*.png
+build/crayon-*.*
+build/character-lineart-svg.png
+build/whale-cal.*
+build/whale-compare.*
+build/whale-lab.*
+build/emblem-lab.*
+
+# ── 过程稿裁片 ───────────────────────────────────────────────────
+assets/crops/
+
+# ── Python ───────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ── 编辑器 / 系统 ────────────────────────────────────────────────
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+~$*
